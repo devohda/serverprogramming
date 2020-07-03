@@ -18,7 +18,8 @@ $(document).ready(function () {
     restaurant.children[1].children[2].children[1].children[0].textContent = '그랜드 워커힐 서울 더파빌리온';
     restaurant.children[1].children[3].children[1].children[0].textContent = '빌즈 광화문';
 
-    restaurant.children[1].children[0].children[1].children[1].textContent = '강남 어글리스토브 브런치가 맛있는 파스타집';
+    restaurant.children[1].children[0].children[1].children[1].textContent =
+        '강남 어글리스토브 브런치가 맛있는 파스타집 강남 어글리스토브 브런치가 맛있는 파스타집 강남 어글리스토브 브런치가 맛있는 파스타집 강남 어글리스토브 브런치가 맛있는 파스타집 강남 어글리스토브 브런치가 맛있는 파스타집';
     restaurant.children[1].children[1].children[1].children[1].textContent = '성수 어니언 팡도르가 맛있는 베이커리 카페';
     restaurant.children[1].children[2].children[1].children[1].textContent = '그랜드 워커힐 서울 더파빌리온';
     restaurant.children[1].children[3].children[1].children[1].textContent = '빌즈 광화문';

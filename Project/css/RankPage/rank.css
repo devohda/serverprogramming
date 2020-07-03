@@ -21,25 +21,12 @@
 
     margin-bottom: 15px;
 }
-
-.first-card {
-    display: block;
-    margin: 40px 0;
-    box-shadow: 3px 3px 13px 0 rgba(0, 0, 0, 0.06);
-    transition: 0.25s;
-    width: 49%; /*반응형 바꿔줄것*/
-}
-.first-card :hover {
-    box-shadow: 3px 3px 13px 0 rgba(0, 0, 0, 0.1);
-    transition: 1.25s;
-}
 .card {
-    display: block;
+    display: flex;
     margin: 40px 0;
     box-shadow: 3px 3px 13px 0 rgba(0, 0, 0, 0.06);
     transition: 0.25s;
-    width: 49%; /*반응형 바꿔줄것*/
-    margin-left: 2%;
+    width: 99%; /*반응형 바꿔줄것*/
 }
 
 .card :hover {
@@ -48,7 +35,8 @@
 }
 
 .card-header {
-    height: 200px;
+    height: 150px;
+    width: 24%;
     padding: 3%;
     background-size: cover;
     background-position: center;
@@ -62,7 +50,8 @@
 }
 
 .card-body {
-    padding: 6%;
+    width: 76%;
+    padding: 0% 6%;
     background-color: #fff;
 }
 .body-content {
