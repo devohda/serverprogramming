@@ -2,12 +2,36 @@
     width: 760px;
     margin: 0 auto;
 }
+.cardview {
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.cardview-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 510;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.47;
+    letter-spacing: -1.6px;
+    color: #333333;
+
+    margin-bottom: 15px;
+}
+
 .first-card {
     display: block;
     margin: 40px 0;
     box-shadow: 3px 3px 13px 0 rgba(0, 0, 0, 0.06);
     transition: 0.25s;
     width: 49%; /*반응형 바꿔줄것*/
+}
+.first-card :hover {
+    box-shadow: 3px 3px 13px 0 rgba(0, 0, 0, 0.1);
+    transition: 1.25s;
 }
 .card {
     display: block;
@@ -21,13 +45,6 @@
 .card :hover {
     box-shadow: 3px 3px 13px 0 rgba(0, 0, 0, 0.1);
     transition: 1.25s;
-}
-
-.cardview {
-    display: flex;
-    justify-content: flex-start;
-    padding-bottom: 16px;
-    flex-wrap: wrap;
 }
 
 .card-header {
