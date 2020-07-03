@@ -48,11 +48,11 @@
 }
 
 .card-header {
-    height: 150px;
+    height: 200px;
     padding: 3%;
     background-size: cover;
-    background-position: 'center';
-    background-color: 'white';
+    background-position: center;
+    background-color: white;
     color: #fff;
 }
 
