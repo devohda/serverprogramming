@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!--메인홈페이지 개별 css-->
         <link rel="stylesheet" type="text/css" href="../../css/MainHome/main.css" />
         <title>Ya GOLLA</title>
@@ -17,6 +18,9 @@
                         HOME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RANK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RANDOM
                     </p>
                 </div>
+                <div id="hamberg-nav">
+                    <img src="../../src/MainHome/hamberger.png" alt="hamberg" />
+                </div>
             </div>
         </header>
         <!--중앙 정렬 및 컨텐츠 들어가는 div-->
@@ -25,16 +29,22 @@
             <div class="slider"></div>
             <!--광고가 들어갈 div-->
             <div class="add">
-                <img src="../../src/MainHome/waterbomb.PNG" alt="no image" />
-                <img src="../../src/MainHome/ashley.jpg" alt="no image" />
+                <div class="seperate">
+                    <img src="../../src/MainHome/waterbomb.PNG" alt="no image" />
+                </div>
+                <div class="seperate">
+                    <img src="../../src/MainHome/ashley.jpg" alt="no image" />
+                </div>
             </div>
             <div class="add">
-                <img src="../../src/MainHome/jeju.PNG" alt="no image" />
-                <img src="../../src/MainHome/yanolja.jpg" alt="no image" />
+                <div class="seperate">
+                    <img src="../../src/MainHome/jeju.PNG" alt="no image" />
+                </div>
+                <div class="seperate" id="lastsep">
+                    <img src="../../src/MainHome/yanolja.jpg" alt="no image" />
+                </div>
             </div>
-            <footer>
-                produce by 3
-            </footer>
         </div>
+        <footer></footer>
     </body>
 </html>

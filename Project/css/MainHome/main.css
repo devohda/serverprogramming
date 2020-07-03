@@ -5,8 +5,11 @@
 body {
     background: rgb(240, 240, 240);
 }
+#hamberg-nav {
+    display: none;
+}
 #container {
-    width: 1200px;
+    width: 760px;
     margin: 0 auto;
 }
 header {
@@ -15,7 +18,7 @@ header {
     border-bottom: 2px solid rgb(113, 200, 226);
 }
 #insideheader {
-    width: 1200px;
+    width: 760px;
     margin: 0 auto;
 }
 #main-nav {
@@ -43,24 +46,107 @@ header img {
     margin-top: 10px;
     border-radius: 5px;
 }
-.add img {
+.seperate {
     float: left;
-    width: 570px;
+    width: 350px;
     height: 210px;
-    border-radius: 5px;
 }
-.add img:nth-child(1) {
+.seperate:nth-child(odd) {
     margin: 20px;
 }
-.add img:nth-child(2) {
+.seperate:nth-child(even) {
     margin-top: 20px;
     margin-right: 20px;
 }
+.add img {
+    width: 350px;
+    height: 210px;
+    border-radius: 5px;
+}
 footer {
-    margin-top: 10px;
-    height: 100px;
+    margin-top: 20px;
+    height: 70px;
     background: rgb(59, 59, 59);
     color: white;
     font-size: 2em;
     font-weight: bold;
+}
+@media (max-width: 767px) {
+    * {
+        clear: both;
+        margin: 0;
+        padding: 0;
+    }
+    #insideheader {
+        width: 80%;
+        margin: 0 auto;
+    }
+    #main-nav {
+        display: none;
+    }
+    #hamberg-nav {
+        float: right;
+        display: block;
+    }
+    #container {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .slider {
+        height: 300px;
+    }
+    .add {
+        width: 100%;
+        height: 250px;
+        background: rgb(240, 240, 240);
+        margin: 0 auto;
+    }
+    .seperate {
+        width: 100%;
+        height: 250px;
+        background: white;
+        border-radius: 5px;
+    }
+    .seperate:nth-child(odd) {
+        margin: 0;
+        margin-top: 10px;
+    }
+    .seperate:nth-child(even) {
+        margin: 0;
+        margin-top: 10px;
+    }
+    #lastsep {
+        margin-bottom: 20px;
+    }
+    .seperate img {
+        width: 95%;
+        height: 210px;
+        border-radius: 5px;
+        display: block;
+        margin: 20px auto;
+    }
+    @media (max-width: 320px) {
+        * {
+            clear: both;
+            margin: 0;
+            padding: 0;
+        }
+        .slider {
+            width: 100%;
+            height: 150px;
+        }
+        .add {
+            width: 100%;
+            height: 150px;
+            margin: 0 auto;
+        }
+        .seperate {
+            width: 100%;
+            height: 150px;
+        }
+        .seperate img {
+            height: 120px;
+            margin: 15px auto;
+        }
+    }
 }
