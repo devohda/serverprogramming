@@ -51,6 +51,7 @@ body {
     background: white;
     border-radius: 5px;
 }
+
 .course-area img {
     float: left;
     margin-top: 10px;
@@ -59,15 +60,13 @@ body {
     border: 1px solid black;
     box-sizing: border-box;
 }
-.course-area p {
+#course {
+    border: 1px solid black;
     float: left;
     margin-top: 10px;
-    margin-left: 50px;
     width: 60%;
-    height: 150px;
-    border: 1px solid black;
-    box-sizing: border-box;
 }
+
 .button-area {
     clear: both;
     width: 100px;
