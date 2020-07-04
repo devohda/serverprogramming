@@ -3,6 +3,39 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>
+            /*var didScroll;
+            var lastScrollTop = 0;
+            var delta = 5;
+            var navbarHeight = $('header').outerHeight();
+            $(window).scroll(function (event) { didScroll = true; });
+            
+            setInterval(
+                function () {
+                    if (didScroll) {
+                        hasScrolled(); 
+                        didScroll = false;
+                    }
+                }, 250);
+
+            function hasScrolled() {
+                var st = $(this).scrollTop(); // Make sure they scroll more than delta 
+                if (Math.abs(lastScrollTop - st) <= delta) return;
+                // If they scrolled down and are past the navbar, add class .nav-up. 
+                // This is necessary so you never see what is "behind" the navbar. 
+                if (st > lastScrollTop && st > navbarHeight) { // Scroll Down 
+                    $('header').removeClass('nav-down').addClass('nav-up');
+                } else {
+                    // Scroll Up 
+                    if (st + $(window).height() < $(document).height()) {
+                        $('header').removeClass('nav-up').addClass('nav-down');
+                    }
+                }
+
+                lastScrollTop = st;
+            }*/
+        </script>
         <!--메인홈페이지 개별 css-->
         <link rel="stylesheet" type="text/css" href="../../css/MainHome/main.css" />
         <title>Ya GOLLA</title>
@@ -18,9 +51,6 @@
                     <div>Rank</div>
                     <div>Random</div>
                 </div>
-                <div id="hamberg-nav">
-                    <img src="../../src/MainHome/hamberger.png" alt="hamberg" />
-                </div>
             </div>
         </header>
         <!--중앙 정렬 및 컨텐츠 들어가는 div-->
@@ -29,12 +59,27 @@
             <div class="slider"></div>
 
             <!--광고가 들어갈 div-->
-            <div class="advert">
+            <div class="advert"> <!--동적으로 만들 땐 advert-img 추가하고 background-img url 바꿔주기-->
                 <div class="advert-img"></div>
                 <div class="advert-img"></div>
                 <div class="advert-img"></div>
             </div>
         </div>
-        <footer></footer>
+        <footer>
+            <div class="content">
+                만든 사람
+            </div>
+            <div class="tab_bar">
+                <div><img src="../../src/MainHome/main.png">
+                    <div>Main</div>
+                </div>
+                <div><img src="../../src/MainHome/rank.png">
+                    <div>Main</div>
+                </div>
+                <div><img src="../../src/MainHome/random.png">
+                    <div>Main</div>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>

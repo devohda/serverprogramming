@@ -6,7 +6,7 @@
     font-family: 'Noto Sans KR', sans-serif;
 }
 
-#hamberg-nav {
+#hamberg-nav-button{
     display: none;
 }
 #container {
@@ -41,6 +41,14 @@ header {
 
 header img {
     height: 50px;
+}
+
+/*스크롤 up/down시 나타나는 메뉴 구현*/
+.nav-up{
+    display: none;
+}
+.nav-down{
+    display: block;
 }
 
 /*광고 들어갈 부분*/
@@ -105,11 +113,16 @@ header img {
 footer {
     margin-top: 20px;
     height: 70px;
-    background: rgb(59, 59, 59);
-    color: white;
+    border-top:1px solid #e6e6e6;
     font-size: 2em;
 }
 
+.content{
+    display: block;
+}
+.tab_bar{
+    display: none;
+}
 
 @media (max-width: 767px) {
     * {
@@ -124,7 +137,7 @@ footer {
     #main-nav {
         display: none;
     }
-    #hamberg-nav {
+    #hamberg-nav-button {
         float: right;
         display: block;
     }
@@ -185,6 +198,31 @@ footer {
         margin: 10px auto;
     }
 
+    /*tab 바 나타내기 - 모바일 전용*/
+    footer{
+        height: 48px;
+        position: fixed;
+        bottom: 0;
+        z-index: 100;
+        background-color: white;
+        width: 100%;
+    }
+    .content{
+        display: none;
+    }
+    .tab_bar{
+        display: flex;
+        justify-content: space-between;
+        padding: 9px 50px 10px;
+        font-size: 8px;
+    }
+    .tab_bar>div{
+        text-align: center;
+    }
+    .tab_bar img{
+        height: 20px;
+        display: block;
+    }
 
 }
 
@@ -198,7 +236,7 @@ footer {
         width: 100%;
         height: 150px;
     }
-    .add {
+    /*.add {
         width: 100%;
         height: 150px;
         margin: 0 auto;
@@ -211,4 +249,5 @@ footer {
         height: 120px;
         margin: 15px auto;
     }
+    */
 }
