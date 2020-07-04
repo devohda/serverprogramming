@@ -51,7 +51,7 @@
 }
 .body-content {
     margin-bottom: 20px;
-    font-size: 13px;
+    font-size: 18px;
 
     white-space: nowrap;
     overflow: hidden;
@@ -60,10 +60,25 @@
     /* 여러 줄 자르기 추가 스타일 */
     white-space: normal;
     line-height: 1.8;
-    height: 3.6em;
+    height: 1.8em;
     text-align: left;
     word-wrap: break-word;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.body-content-category {
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    white-space: normal;
+    line-height: 1.8;
+    height: 1.8em;
+    text-align: left;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
 }
