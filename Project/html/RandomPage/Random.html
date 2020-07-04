@@ -7,22 +7,7 @@
         <link rel="stylesheet" type="text/css" href="../../css/RandomPage/Random.css" />
         <!--제이쿼리-->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                // 지역 + 카테고리 클릭시 함수
-                var i = 1;
-                $('.food').click(function () {
-                    i = i + 1;
-                    $(document)
-                        .find('.course-area')
-                        .append(
-                            '<div class="randomfood"><img class="randomfood result" src="" /><p>코스 ' +
-                                i +
-                                '</p><div class="button-area"><input type="button" name="" id="rerandom" value="다시뽑기" /></div></div>',
-                        );
-                });
-            });
-        </script>
+        <script src="../../js/Random/random.js"></script>
         <title>Ya GOLLA</title>
     </head>
     <body>
@@ -50,11 +35,13 @@
             <div class="course-area">
                 <div class="randomfood">
                     <img class="randomfood result" src="" />
-                    <p>
+                    <p id="course1">
                         코스 1
                     </p>
                     <div class="button-area">
-                        <input type="button" name="" id="rerandom" value="다시뽑기" />
+                        <form method="GET" name="result" id="result">
+                            <input type="button" name="" id="rerandom" value="다시뽑기" />
+                        </form>
                     </div>
                 </div>
             </div>
