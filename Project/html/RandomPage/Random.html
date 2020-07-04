@@ -10,8 +10,16 @@
         <script>
             $(document).ready(function () {
                 // 지역 + 카테고리 클릭시 함수
+                var i = 1;
                 $('.food').click(function () {
-                    $(document).find('.course-area').append('<div class="randomfood"></div>');
+                    i = i + 1;
+                    $(document)
+                        .find('.course-area')
+                        .append(
+                            '<div class="randomfood"><img class="randomfood result" src="" /><p>코스 ' +
+                                i +
+                                '</p><div class="button-area"><input type="button" name="" id="rerandom" value="다시뽑기" /></div></div>',
+                        );
                 });
             });
         </script>
@@ -45,7 +53,9 @@
                     <p>
                         코스 1
                     </p>
-                    <input type="button" value="다시뽑기" />
+                    <div class="button-area">
+                        <input type="button" name="" id="rerandom" value="다시뽑기" />
+                    </div>
                 </div>
             </div>
         </div>
