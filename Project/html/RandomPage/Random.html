@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!--메인홈페이지 개별 css-->
+        <link rel="stylesheet" type="text/css" href="../../css/RandomPage/Random.css" />
+        <!--제이쿼리-->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                // 지역 + 카테고리 클릭시 함수
+                $('.food').click(function () {
+                    $(document).find('.course-area').append('<div class="randomfood"></div>');
+                });
+            });
+        </script>
+        <title>Ya GOLLA</title>
+    </head>
+    <body>
+        <!--중앙 정렬 및 컨텐츠 들어가는 div-->
+        <div id="container">
+            <!--bxslider 사용할 div-->
+            <div class="search-area">
+                <div class="search-position">
+                    <p>
+                        지역:&nbsp;
+                    </p>
+                    <input type="text" />
+                </div>
+            </div>
+            <div class="category-area">
+                <div class="category-position">
+                    <ul>
+                        <li class="food">음식점</li>
+                        <li class="cafe">카페</li>
+                        <li class="drink">주점</li>
+                        <li class="play">놀기</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="course-area">
+                <div class="randomfood">
+                    <img class="randomfood result" src="" />
+                    <p>
+                        코스 1
+                    </p>
+                    <input type="button" value="다시뽑기" />
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
