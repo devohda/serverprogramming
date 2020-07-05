@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="../../css/common.css" />
         <!--메인홈페이지 개별 css-->
         <link rel="stylesheet" type="text/css" href="../../css/RandomPage/Random.css" />
         <!--제이쿼리-->
@@ -11,28 +12,72 @@
         <title>Ya GOLLA</title>
     </head>
     <body>
+        <header>
+            <div id="insideheader">
+                <!--로고 div-->
+                <img src="../../src/MainHome/logo2.PNG" alt="logo" />
+                <!--네비게이션 들어가는 div-->
+                <div id="main-nav">
+                    <div>Home</div>
+                    <div>Rank</div>
+                    <div>Random</div>
+                </div>
+            </div>
+        </header>
         <!--중앙 정렬 및 컨텐츠 들어가는 div-->
         <div id="container">
             <!--bxslider 사용할 div-->
             <div class="search-area">
                 <div class="search-position">
-                    <p>
-                        지역:&nbsp;
-                    </p>
+                    <div>지역을 검색하세요</div>
                     <input type="text" />
                 </div>
             </div>
             <div class="category-area">
                 <div class="category-position">
-                    <ul>
-                        <li class="food">음식점</li>
-                        <li class="cafe">카페</li>
-                        <li class="drink">주점</li>
-                        <li class="play">놀기</li>
-                    </ul>
+                    <div class="food">음식점</div>
+                    <div class="cafe">카페</div>
+                    <div class="drink">주점</div>
+                    <div class="play">놀기</div>
                 </div>
             </div>
-            <div class="course-area"></div>
+            <div class="course-area">
+                <div class="course-result">
+                    <img class="result-img" src="http://placehold.it/200x200?text=sample" place />
+                    <div class="course">
+                        <p class="result-title">타이틀</p>
+                        <a href="" class="result-href">
+                            링크
+                        </a>
+                        <div class="result-content">
+                            <p class="result-address">1</p>
+                            <p class="result-category">2</p>
+                            <p class="result-tags">3</p>
+                        </div>
+                        <button class="re-load">다시 뽑기</button>
+                    </div>
+                    <img src="../../src/Random/delete.png" class="delete" />
+                </div>
+            </div>
         </div>
+        <footer>
+            <div class="content">
+                만든 사람
+            </div>
+            <div class="tab_bar">
+                <div>
+                    <img src="../../src/MainHome/main.png" />
+                    <div>Main</div>
+                </div>
+                <div>
+                    <img src="../../src/MainHome/rank.png" />
+                    <div>Rank</div>
+                </div>
+                <div>
+                    <img src="../../src/MainHome/random.png" />
+                    <div>Random</div>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>
