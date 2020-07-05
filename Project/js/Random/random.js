@@ -45,6 +45,7 @@ $(document).ready(function () {
 
         const del = document.createElement('img');
         del.classList.add('delete');
+        del.setAttribute('src', '../../src/Random/delete.png');
 
         course_result.appendChild(result_img);
         course_result.appendChild(course);
@@ -53,146 +54,61 @@ $(document).ready(function () {
         return course_result;
     }
 
-    let url = '';
+    //url 만들기(api 가져오기)
+    let url = 'http://59.6.42.102:8080/api/random/pick?keyword=';
+    let location;
 
-    let location = input();
-    function input() {
-        let location = $('#input').value;
-        return location;
-    }
-
-    $('.category-position').click(function () {
-        const c = makingCourse();
-        COURSE.appendChild(c);
+    // 지역 입력 받기
+    $('#search-button').click(function () {
+        location = $('input').val();
     });
+
+    //각 버튼 눌렀을 때
 
     $('.food').click(function food() {
-        i = i + 1;
-        $(document).return;
-    });
-    $('.cafe').click(function () {
-        i = i + 1;
-        $(document)
-            .find('.course-area')
-            .append(
-                '<div class="course-result">' +
-                    '<img class="resultimg' +
-                    i +
-                    '" src="" />' +
-                    '<div class="course">' +
-                    '<p class="resulttitle' +
-                    i +
-                    '"></p>' +
-                    '<a href"" class="resulthref' +
-                    i +
-                    '">' +
-                    '<p class="resultlink' +
-                    i +
-                    '">링크</p>' +
-                    '</a>' +
-                    '<p class="resultaddress' +
-                    i +
-                    '">1&nbsp;</p>' +
-                    '<p class="resultcategory' +
-                    i +
-                    '">2&nbsp;</p>' +
-                    '<p class="resulttags' +
-                    i +
-                    '">3&nbsp;</p>' +
-                    '</div>' +
-                    '<div class="erase">삭제</div>' +
-                    '<div class="button-area">' +
-                    '<form method="GET" name="result" class="result">' +
-                    '<input type="button" name="" class="rerandom" value="다시뽑기" />' +
-                    '</form>' +
-                    '</div>' +
-                    '</div>',
-            );
-    });
-    $('.drink').click(function () {
-        i = i + 1;
-        $(document)
-            .find('.course-area')
-            .append(
-                '<div class="course-result">' +
-                    '<img class="resultimg' +
-                    i +
-                    '" src="" />' +
-                    '<div class="course">' +
-                    '<p class="resulttitle' +
-                    i +
-                    '"></p>' +
-                    '<a href"" class="resulthref' +
-                    i +
-                    '">' +
-                    '<p class="resultlink' +
-                    i +
-                    '">링크</p>' +
-                    '</a>' +
-                    '<p class="resultaddress' +
-                    i +
-                    '">1&nbsp;</p>' +
-                    '<p class="resultcategory' +
-                    i +
-                    '">2&nbsp;</p>' +
-                    '<p class="resulttags' +
-                    i +
-                    '">3&nbsp;</p>' +
-                    '</div>' +
-                    '<div class="erase">삭제</div>' +
-                    '<div class="button-area">' +
-                    '<form method="GET" name="result" class="result">' +
-                    '<input type="button" name="" class="rerandom" value="다시뽑기" />' +
-                    '</form>' +
-                    '</div>' +
-                    '</div>',
-            );
-    });
-    $('.play').click(function () {
-        i = i + 1;
-        $(document)
-            .find('.course-area')
-            .append(
-                '<div class="course-result">' +
-                    '<img class="resultimg' +
-                    i +
-                    '" src="" />' +
-                    '<div class="course">' +
-                    '<p class="resulttitle' +
-                    i +
-                    '"></p>' +
-                    '<a href"" class="resulthref' +
-                    i +
-                    '">' +
-                    '<p class="resultlink' +
-                    i +
-                    '">링크</p>' +
-                    '</a>' +
-                    '<p class="resultaddress' +
-                    i +
-                    '">1&nbsp;</p>' +
-                    '<p class="resultcategory' +
-                    i +
-                    '">2&nbsp;</p>' +
-                    '<p class="resulttags' +
-                    i +
-                    '">3&nbsp;</p>' +
-                    '</div>' +
-                    '<div class="erase">삭제</div>' +
-                    '<div class="button-area">' +
-                    '<form method="GET" name="result" class="result">' +
-                    '<input type="button" name="" class="rerandom" value="다시뽑기" />' +
-                    '</form>' +
-                    '</div>' +
-                    '</div>',
-            );
-    });
-});
-//<![CDATA[
-$(function () {
-    $('.food').click(function () {
+        let c = makingCourse();
+        url = url + location + '맛집';
+        //<![CDATA[
         $.ajax({
-            url: 'http://59.6.42.102:8080/api/random/test', //데이터전송및요청할URL 주소
+            url: 'http://59.6.42.102:8080/api/random/test',
+            //데이터전송및요청할URL 주소 -> 변수 url의 값으로 교체 예정
+            type: 'GET',
+            dataType: 'JSON',
+
+            error: function () {
+                alert('통신실패!!!!');
+                COURSE.appendChild(c);
+            },
+            success: function (result) {
+                $(c).children('.result-img').attr('src', result.data[0].img);
+                $(c).children('.result-title').append(result.data[0].title);
+                $(c).children('.result-href').attr('href', result.data[0].link);
+                $(c).children('.result-address').append(result.data[0].address);
+                var s = result.data[0].category;
+                $(s).each(function (index, item) {
+                    $(c)
+                        .children('.result-category')
+                        .append(item + ' ');
+                });
+                var s2 = result.data[0].tags;
+                $(s2).each(function (index, item) {
+                    $(c)
+                        .children('.result-tags')
+                        .append('"' + item + '" ');
+                });
+                COURSE.appendChild(c);
+            },
+        });
+        //]]>
+    });
+
+    $('.cafe').click(function () {
+        let c = makingCourse();
+        url = url + location + '카페';
+        //<![CDATA[
+        $.ajax({
+            url: 'http://59.6.42.102:8080/api/random/test',
+            //데이터전송및요청할URL 주소 -> 변수 url의 값으로 교체 예정
             type: 'GET',
             dataType: 'JSON',
 
@@ -200,47 +116,114 @@ $(function () {
                 alert('통신실패!!!!');
             },
             success: function (result) {
-                $(document).find('.resultimg').attr('src', result.data[0].img);
-                $(document).find('.resulttitle').append(result.data[0].title);
-                $(document).find('.resulthref').attr('href', result.data[0].link);
-                $(document).find('.resultaddress').append(result.data[0].address);
+                $(c).children('.result-img').attr('src', result.data[0].img);
+                $(c).children('.result-title').append(result.data[0].title);
+                $(c).children('.result-href').attr('href', result.data[0].link);
+                $(c).children('.result-address').append(result.data[0].address);
                 var s = result.data[0].category;
                 $(s).each(function (index, item) {
-                    $(document)
-                        .find('.resultcategory')
+                    $(c)
+                        .children('.result-category')
                         .append(item + ' ');
                 });
                 var s2 = result.data[0].tags;
                 $(s2).each(function (index, item) {
-                    $(document)
-                        .find('.resulttags')
+                    $(c)
+                        .children('.result-tags')
                         .append('"' + item + '" ');
                 });
+                COURSE.appendChild(c);
             },
         });
-
-        return false; //action 페이지로전환되는것을차단합니다.
+        //]]>
     });
-});
-//]]>
-$(document).on('click', '.erase', function () {
-    $(this).parent().remove();
-    i = i - 1;
-});
+    $('.drink').click(function () {
+        let c = makingCourse();
+        url = url + location + '주점';
+        //<![CDATA[
+        $.ajax({
+            url: 'http://59.6.42.102:8080/api/random/test',
+            //데이터전송및요청할URL 주소 -> 변수 url의 값으로 교체 예정
+            type: 'GET',
+            dataType: 'JSON',
 
-$(document).on('click', '.rerandom', function () {
-    var box = $(this).parents('.course-result');
-    $.ajax({
-        url: 'http://59.6.42.102:8080/api/random/test', //데이터전송및요청할URL 주소
-        type: 'GET',
-        dataType: 'JSON',
-
-        error: function () {
-            alert('통신실패!!!!');
-        },
-        success: function (result) {
-            console.log(result);
-            box.find('.resultimg').attr('src', result.data[0].img);
-        },
+            error: function () {
+                alert('통신실패!!!!');
+            },
+            success: function (result) {
+                $(c).children('.result-img').attr('src', result.data[0].img);
+                $(c).children('.result-title').append(result.data[0].title);
+                $(c).children('.result-href').attr('href', result.data[0].link);
+                $(c).children('.result-address').append(result.data[0].address);
+                var s = result.data[0].category;
+                $(s).each(function (index, item) {
+                    $(c)
+                        .children('.result-category')
+                        .append(item + ' ');
+                });
+                var s2 = result.data[0].tags;
+                $(s2).each(function (index, item) {
+                    $(c)
+                        .children('.result-tags')
+                        .append('"' + item + '" ');
+                });
+                COURSE.appendChild(c);
+            },
+        });
+        //]]>
     });
+    $('.play').click(function () {
+        let c = makingCourse();
+        url = url + location + '놀기';
+        //<![CDATA[
+        $.ajax({
+            url: 'http://59.6.42.102:8080/api/random/test',
+            //데이터전송및요청할URL 주소 -> 변수 url의 값으로 교체 예정
+            type: 'GET',
+            dataType: 'JSON',
+
+            error: function () {
+                alert('통신실패!!!!');
+            },
+            success: function (result) {
+                $(c).children('.result-img').attr('src', result.data[0].img);
+                $(c).children('.result-title').append(result.data[0].title);
+                $(c).children('.result-href').attr('href', result.data[0].link);
+                $(c).children('.result-address').append(result.data[0].address);
+                var s = result.data[0].category;
+                $(s).each(function (index, item) {
+                    $(c)
+                        .children('.result-category')
+                        .append(item + ' ');
+                });
+                var s2 = result.data[0].tags;
+                $(s2).each(function (index, item) {
+                    $(c)
+                        .children('.result-tags')
+                        .append('"' + item + '" ');
+                });
+                COURSE.appendChild(c);
+            },
+        });
+        //]]>
+    });
+    //카드 하나 지우기
+    $('.delete').click(function () {
+        $(this).parent().remove();
+    });
+
+    //reload 하기
+    $('.re-load').click(function () {
+        var box = $(this).parents('.course-result');
+        box.remove();
+    });
+
+
+
+
+
+
+
+
+    
 });
