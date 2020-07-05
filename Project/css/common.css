@@ -1,0 +1,118 @@
+/*글꼴 초기화 => 바꾸셔도 무방합니다!*/
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+/* 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/*header 부분*/
+header {
+    height: 50px;
+    background: #fff;
+    border-bottom: 1px solid #e6e6e6;
+    line-height: 50px;
+    box-shadow: 1px 1px 10px #ddd;
+
+    position: sticky; /*header 고정*/
+    top: 0;
+}
+#insideheader {
+    width: 760px;
+    margin: 0 auto;
+}
+
+#main-nav {
+    /*메뉴 네비게이션 부분*/
+    float: right;
+    font-size: 1em;
+    margin-right: 5px;
+}
+#main-nav div {
+    float: left;
+    margin: 0 20px;
+}
+
+header img {
+    height: 50px;
+}
+
+/*내용 들어가는 부분*/
+#container {
+    width: 760px;
+    margin: 30px auto 0;
+}
+
+/*footer 부분*/
+footer {
+    margin-top: 20px;
+    height: 70px;
+    border-top: 1px solid #e6e6e6;
+    font-size: 2em;
+}
+.content {
+    /*desktop 환경에선 footer 내용이 보임*/
+    display: block;
+}
+.tab_bar {
+    /*모바일 환경에서 tab_bar 나옴 - media query 적용*/
+    display: none;
+}
+
+/*media query 반응형 페이지 구현*/
+@media (max-width: 767px) {
+    * {
+        clear: both;
+    }
+
+    /*header 부분*/
+    #insideheader {
+        width: 80%;
+        margin: 0 auto;
+    }
+    #main-nav {
+        /*네비게이션 삭제 ( tab_bar 하단에 생김 )*/
+        display: none;
+    }
+
+    /*내용 들어가는 부분*/
+    #container {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .slider {
+        height: 300px;
+    }
+
+    /*tab 바 나타내기 - 모바일 전용*/
+    footer {
+        height: 48px;
+        position: fixed;
+        bottom: 0;
+        z-index: 100;
+        background-color: white;
+        width: 100%;
+    }
+    .content {
+        display: none;
+    }
+    .tab_bar {
+        display: flex;
+        justify-content: space-around;
+        padding: 9px 0 10px;
+        font-size: 8px;
+    }
+    .tab_bar > div {
+        text-align: center;
+    }
+    .tab_bar img {
+        height: 20px;
+        display: block;
+    }
+}
+
+/*휴대폰 기기*/
+@media (max-width: 320px) {
+}
