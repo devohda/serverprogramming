@@ -4,9 +4,10 @@ $(document).ready(function () {
     var cafe = document.getElementById('cafe');
     var dessert = document.getElementById('dessert');
     var playing = document.getElementById('playing');
-
+    var naverurl = `http://59.6.42.102:8080/api/rank/list?keyword=`;
+    var korearankurl = `http://59.6.42.102:8080/api/rank/tour?city=&category=&order=`; //디폴트
     $.ajax({
-        //url: 'http://59.6.42.102:8080/api/rank/list?keyword=%EC%9D%8C%EC%8B%9D%EC%A0%90', //음식점
+        //url: `${naverurl}음식점`,
         url: 'http://59.6.42.102:8080/api/rank/test',
         type: 'get',
         dataType: 'json',
@@ -36,7 +37,7 @@ $(document).ready(function () {
         }
     });
     $.ajax({
-        //url: 'http://59.6.42.102:8080/api/rank/list?keyword=%EC%88%A0%EC%A7%91', //술집
+        //url: `${naverurl}술집`,
         url: 'http://59.6.42.102:8080/api/rank/test',
         type: 'get',
         dataType: 'json',
@@ -66,7 +67,7 @@ $(document).ready(function () {
         }
     });
     $.ajax({
-        //url: 'http://59.6.42.102:8080/api/rank/list?keyword=%EC%B9%B4%ED%8E%98', //카페
+        //url: `${naverurl}카페`,
         url: 'http://59.6.42.102:8080/api/rank/test',
         type: 'get',
         dataType: 'json',
@@ -97,7 +98,7 @@ $(document).ready(function () {
     });
 
     $.ajax({
-        //url: 'http://59.6.42.102:8080/api/rank/list?keyword=%EB%94%94%EC%A0%80%ED%8A%B8', //디저트
+        //url: `${naverurl}디저트`,
         url: 'http://59.6.42.102:8080/api/rank/test',
         type: 'get',
         dataType: 'json',
@@ -127,7 +128,7 @@ $(document).ready(function () {
         }
     });
     $.ajax({
-        //url: 'http://59.6.42.102:8080/api/rank/tour?city=&category=&order=', //여행
+        //url: `${korearankurl}`, //여행
         url: 'http://59.6.42.102:8080/api/rank/test',
         type: 'get',
         dataType: 'json',
@@ -137,23 +138,7 @@ $(document).ready(function () {
             playing.children[1].children[i].children[0].style.backgroundImage = 'url(' + response.data[i].img + ')';
             playing.children[1].children[i].children[1].children[0].append(response.data[i].title);
             playing.children[1].children[i].children[1].children[1].append(response.data[i].content);
-            playing.children[1].children[i].children[1].children[2].append('리뷰수 ' + response.data[i].review);
-            if (response.data[i].address) {
-                console.log('주소');
-                playing.children[1].children[i].children[1].children[3].append(response.data[i].address);
-            } else if (response.data[i].category.length != 0) {
-                console.log('카테고리');
-                for (var j = 0; j < response.data[i].category.length; j++) {
-                    playing.children[1].children[i].children[1].children[3].innerHTML +=
-                        '<div class="body-content-list-category">' + response.data[i].category[j] + '</div>';
-                }
-            } else if (response.data[i].tags.length) {
-                console.log('태그');
-                for (var j = 0; j < response.data[i].tags.length; j++) {
-                    playing.children[1].children[i].children[1].children[3].innerHTML +=
-                        '<div class="body-content-list-tags">' + response.data[i].tags[j] + '</div>';
-                }
-            }
+            playing.children[1].children[i].children[1].children[2].append(response.data[i].address);
         }
     });
 });
