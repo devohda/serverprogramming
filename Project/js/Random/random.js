@@ -6,19 +6,31 @@ $(document).ready(function () {
         $(document)
             .find('.course-area')
             .append(
-                '<div class="randomfood"><img class="resultimg' +
+                '<div class="randomfood">' +
+                    '<img class="resultimg' +
                     i +
-                    '" src="" /><div id="course"><p id="course' +
+                    '" src="" />' +
+                    '<div id="course">' +
+                    '<p id="course' +
                     i +
                     '">코스 ' +
                     i +
-                    '</p><p id="resulttitle' +
+                    '</p>' +
+                    '<p id="resulttitle' +
                     i +
-                    '"></p><a href="" id="resulthref' +
+                    '"></p>' +
+                    '<a href"" id="resulthref">' +
+                    '<p id="resultlink' +
                     i +
-                    '><p id="resultlink' +
-                    i +
-                    '"></p></a></div><div class="button-area"><form method="GET" name="result" id="result"><input type="button" name="" id="rerandom" value="다시뽑기" /></form></div></div>',
+                    '">링크</p>' +
+                    '</a>' +
+                    '</div>' +
+                    '<div class="button-area">' +
+                    '<form method="GET" name="result" id="result">' +
+                    '<input type="button" name="" id="rerandom" value="다시뽑기" />' +
+                    '</form>' +
+                    '</div>' +
+                    '</div>',
             );
     });
 });
@@ -42,12 +54,7 @@ $(function () {
                 $(document)
                     .find('#resulttitle' + i)
                     .append(result.data[0].title);
-                $(document)
-                    .find('#resulthref' + i)
-                    .attr('href', result.data[0].link);
-                $(document)
-                    .find('#resultlink' + i)
-                    .append('링크');
+                $(document).find('#resulthref').attr('href', result.data[0].link);
             },
         });
 

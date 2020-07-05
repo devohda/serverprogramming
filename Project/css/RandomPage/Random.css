@@ -55,18 +55,20 @@ body {
 .course-area img {
     float: left;
     margin-top: 10px;
+    margin-left: 7px;
     width: 150px;
     height: 150px;
-    border: 1px solid black;
     box-sizing: border-box;
 }
 #course {
-    border: 1px solid black;
     float: left;
     margin-top: 10px;
+    margin-left: 7px;
     width: 60%;
 }
-
+#erase {
+    float: right;
+}
 .button-area {
     clear: both;
     width: 100px;
