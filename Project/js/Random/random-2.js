@@ -15,8 +15,17 @@ $(function () {
                 $(document).find('#resulthref').attr('href', result.data[0].link);
                 $(document).find('#resultaddress').append(result.data[0].address);
                 var s = result.data[0].category;
-                $.each(s, function (i, el) {});
-                $(document).find('#resultcategory').append(s);
+                $(s).each(function (index, item) {
+                    $(document)
+                        .find('#resultcategory')
+                        .append(item + ' ');
+                });
+                var s2 = result.data[0].tags;
+                $(s2).each(function (index, item) {
+                    $(document)
+                        .find('#resulttags')
+                        .append(item + ' ');
+                });
             },
         });
 
@@ -24,3 +33,10 @@ $(function () {
     });
 });
 //]]>
+$(document).ready(function () {
+    $(this)
+        .find('#erase')
+        .click(function () {
+            $('.randomfood').remove();
+        });
+});

@@ -1,33 +1,157 @@
+i = 0;
 $(document).ready(function () {
     // 지역 + 카테고리 클릭시 함수
-    var i = 0;
     $('.food').click(function () {
         i = i + 1;
         $(document)
             .find('.course-area')
             .append(
-                '<div class="randomfood">' +
+                '<div class="course-result">' +
                     '<img class="resultimg' +
                     i +
                     '" src="" />' +
-                    '<div id="course">' +
-                    '<p id="course' +
-                    i +
-                    '">코스 ' +
-                    i +
-                    '</p>' +
-                    '<p id="resulttitle' +
+                    '<div class="course">' +
+                    '<p class="resulttitle' +
                     i +
                     '"></p>' +
-                    '<a href"" id="resulthref">' +
-                    '<p id="resultlink' +
+                    '<a href"" class="resulthref' +
+                    i +
+                    '">' +
+                    '<p class="resultlink' +
                     i +
                     '">링크</p>' +
                     '</a>' +
+                    '<p class="resultaddress' +
+                    i +
+                    '">1&nbsp;</p>' +
+                    '<p class="resultcategory' +
+                    i +
+                    '">2&nbsp;</p>' +
+                    '<p class="resulttags' +
+                    i +
+                    '">3&nbsp;</p>' +
                     '</div>' +
+                    '<div class="erase">삭제</div>' +
                     '<div class="button-area">' +
-                    '<form method="GET" name="result" id="result">' +
-                    '<input type="button" name="" id="rerandom" value="다시뽑기" />' +
+                    '<form method="GET" name="result" class="result">' +
+                    '<input type="button" name="" class="rerandom" value="다시뽑기" />' +
+                    '</form>' +
+                    '</div>' +
+                    '</div>',
+            );
+    });
+    $('.cafe').click(function () {
+        i = i + 1;
+        $(document)
+            .find('.course-area')
+            .append(
+                '<div class="course-result">' +
+                    '<img class="resultimg' +
+                    i +
+                    '" src="" />' +
+                    '<div class="course">' +
+                    '<p class="resulttitle' +
+                    i +
+                    '"></p>' +
+                    '<a href"" class="resulthref' +
+                    i +
+                    '">' +
+                    '<p class="resultlink' +
+                    i +
+                    '">링크</p>' +
+                    '</a>' +
+                    '<p class="resultaddress' +
+                    i +
+                    '">1&nbsp;</p>' +
+                    '<p class="resultcategory' +
+                    i +
+                    '">2&nbsp;</p>' +
+                    '<p class="resulttags' +
+                    i +
+                    '">3&nbsp;</p>' +
+                    '</div>' +
+                    '<div class="erase">삭제</div>' +
+                    '<div class="button-area">' +
+                    '<form method="GET" name="result" class="result">' +
+                    '<input type="button" name="" class="rerandom" value="다시뽑기" />' +
+                    '</form>' +
+                    '</div>' +
+                    '</div>',
+            );
+    });
+    $('.drink').click(function () {
+        i = i + 1;
+        $(document)
+            .find('.course-area')
+            .append(
+                '<div class="course-result">' +
+                    '<img class="resultimg' +
+                    i +
+                    '" src="" />' +
+                    '<div class="course">' +
+                    '<p class="resulttitle' +
+                    i +
+                    '"></p>' +
+                    '<a href"" class="resulthref' +
+                    i +
+                    '">' +
+                    '<p class="resultlink' +
+                    i +
+                    '">링크</p>' +
+                    '</a>' +
+                    '<p class="resultaddress' +
+                    i +
+                    '">1&nbsp;</p>' +
+                    '<p class="resultcategory' +
+                    i +
+                    '">2&nbsp;</p>' +
+                    '<p class="resulttags' +
+                    i +
+                    '">3&nbsp;</p>' +
+                    '</div>' +
+                    '<div class="erase">삭제</div>' +
+                    '<div class="button-area">' +
+                    '<form method="GET" name="result" class="result">' +
+                    '<input type="button" name="" class="rerandom" value="다시뽑기" />' +
+                    '</form>' +
+                    '</div>' +
+                    '</div>',
+            );
+    });
+    $('.play').click(function () {
+        i = i + 1;
+        $(document)
+            .find('.course-area')
+            .append(
+                '<div class="course-result">' +
+                    '<img class="resultimg' +
+                    i +
+                    '" src="" />' +
+                    '<div class="course">' +
+                    '<p class="resulttitle' +
+                    i +
+                    '"></p>' +
+                    '<a href"" class="resulthref' +
+                    i +
+                    '">' +
+                    '<p class="resultlink' +
+                    i +
+                    '">링크</p>' +
+                    '</a>' +
+                    '<p class="resultaddress' +
+                    i +
+                    '">1&nbsp;</p>' +
+                    '<p class="resultcategory' +
+                    i +
+                    '">2&nbsp;</p>' +
+                    '<p class="resulttags' +
+                    i +
+                    '">3&nbsp;</p>' +
+                    '</div>' +
+                    '<div class="erase">삭제</div>' +
+                    '<div class="button-area">' +
+                    '<form method="GET" name="result" class="result">' +
+                    '<input type="button" name="" class="rerandom" value="다시뽑기" />' +
                     '</form>' +
                     '</div>' +
                     '</div>',
@@ -36,9 +160,7 @@ $(document).ready(function () {
 });
 //<![CDATA[
 $(function () {
-    var i = 0;
     $('.food').click(function () {
-        i = i + 1;
         $.ajax({
             url: 'http://59.6.42.102:8080/api/random/test', //데이터전송및요청할URL 주소
             type: 'GET',
@@ -52,9 +174,26 @@ $(function () {
                     .find('.resultimg' + i)
                     .attr('src', result.data[0].img);
                 $(document)
-                    .find('#resulttitle' + i)
+                    .find('.resulttitle' + i)
                     .append(result.data[0].title);
-                $(document).find('#resulthref').attr('href', result.data[0].link);
+                $(document)
+                    .find('.resulthref' + i)
+                    .attr('href', result.data[0].link);
+                $(document)
+                    .find('.resultaddress' + i)
+                    .append(result.data[0].address);
+                var s = result.data[0].category;
+                $(s).each(function (index, item) {
+                    $(document)
+                        .find('.resultcategory' + i)
+                        .append(item + ' ');
+                });
+                var s2 = result.data[0].tags;
+                $(s2).each(function (index, item) {
+                    $(document)
+                        .find('.resulttags' + i)
+                        .append('"' + item + '" ');
+                });
             },
         });
 
@@ -62,3 +201,7 @@ $(function () {
     });
 });
 //]]>
+$(document).on('click', '.erase', function () {
+    $(this).parent().remove();
+    i = i - 1;
+});

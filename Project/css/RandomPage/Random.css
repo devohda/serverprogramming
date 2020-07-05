@@ -44,7 +44,7 @@ body {
     margin: 5px;
 }
 
-.randomfood {
+.course-result {
     margin-top: 10px;
     width: 100%;
     height: 210px;
@@ -60,13 +60,13 @@ body {
     height: 150px;
     box-sizing: border-box;
 }
-#course {
+.course {
     float: left;
     margin-top: 10px;
     margin-left: 7px;
     width: 60%;
 }
-#erase {
+.erase {
     float: right;
 }
 .button-area {
@@ -75,7 +75,7 @@ body {
     height: 30px;
     margin: 0 auto;
 }
-#rerandom {
+.rerandom {
     background-color: orange;
     box-sizing: border-box;
     border: white solid 1px;
