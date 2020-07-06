@@ -23,6 +23,7 @@ $(document).ready(function () {
         result_title.classList.add('result-title');
         const result_href = document.createElement('a');
         result_href.classList.add('result-href');
+        result_href.innerText = '상세보기';
 
         const result_content = document.createElement('div');
         result_content.classList.add('result-content');
@@ -89,6 +90,7 @@ $(document).ready(function () {
                 $(c).find('.result-title').append(result.data[0].title);
                 $(c).find('.result-href').attr('href', result.data[0].link);
                 $(c).find('.result-address').append(result.data[0].address);
+                $(c).find('.result-link').attr();
                 var s = result.data[0].category;
                 $(s).each(function (index, item) {
                     $(c)
@@ -280,7 +282,9 @@ $(document).on('click', '.re-load', function () {
 
 $(document).on('click', '#all-re-load', function () {
     let resultAll = $('.course-result');
-
+    let newUrl = url;
+    let dom1 = '<div class="loader"></div>';
+    $('.course-result').append(dom1);
     $(resultAll).each(function (index, item) {
         let c = item;
         let newUrl = url;
@@ -304,8 +308,11 @@ $(document).on('click', '#all-re-load', function () {
 
             error: function () {
                 alert('통신실패!!!!');
+                alert('다시 뽑기를 눌러 주세요!!!!');
+                $('.loader').remove();
             },
             success: function (result) {
+                $('.loader').remove();
                 $(c).children('.result-img').attr('src', result.data[0].img);
                 $(c).find('.result-title').text(result.data[0].title);
                 $(c).find('.result-href').attr('href', result.data[0].link);
