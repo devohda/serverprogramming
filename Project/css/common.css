@@ -60,6 +60,9 @@ footer {
     /*모바일 환경에서 tab_bar 나옴 - media query 적용*/
     display: none;
 }
+.tab_bar img {
+    margin: 0 auto;
+}
 
 /*media query 반응형 페이지 구현*/
 @media (max-width: 767px) {
@@ -113,6 +116,6 @@ footer {
     }
 }
 
-/*휴대폰 기기*/
+/*휴대폰*/
 @media (max-width: 320px) {
 }
