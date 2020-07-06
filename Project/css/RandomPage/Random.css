@@ -1,6 +1,6 @@
 .course-area {
     min-height: 700px;
-    background-color: #4fb6a83b;
+    background-color: #94c1cc;
 }
 
 /*검색창*/
@@ -19,7 +19,9 @@
 .search-position input {
     width: 80%;
     height: 20px;
+    border: 1px solid #ddd;
 }
+
 /*카테고리 선택란*/
 .category-area {
     width: 100%;
@@ -54,7 +56,7 @@
 
 .course-result {
     margin: 10px auto 0;
-    width: 90%;
+    height: 100%;
     background: white;
     border-radius: 5px;
     box-shadow: 3px 3px 20px #ddd;
@@ -70,6 +72,11 @@
     width: 25px;
     position: absolute;
     right: 10px;
+}
+
+.result-title {
+    font-size: 25px;
+    font-weight: 600;
 }
 
 @media (max-width: 767px) {
