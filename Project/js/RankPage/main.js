@@ -1,39 +1,144 @@
 $(document).ready(function () {
     var restaurant = document.getElementById('restaurant');
-    console.log(restaurant.children[1].children[0].children[0]);
-    console.log(restaurant.children[1].children[0].children[1].children[0]);
-    console.log(restaurant.children[1].children[0].children[1].children[1]);
-
-    restaurant.children[1].children[0].children[0].style.backgroundImage =
-        'url(https://search.pstatic.net/common/?autoRotate=true&quality=95&src=http%3A%2F%2Fldb.phinf.naver.net%2F20200618_95%2F1592444372334s0Q8n_PNG%2FUQiRrrx0gOnDEYDXvZLryj1e.png&type=f150_150)';
-    restaurant.children[1].children[1].children[0].style.backgroundImage =
-        'url(https://search.pstatic.net/common/?autoRotate=true&quality=95&src=http%3A%2F%2Fldb.phinf.naver.net%2F20190204_269%2F1549212634045uJAvX_PNG%2FZfpnq_GUADvxtxA8DK6xvfOK.png&type=f150_150)';
-    restaurant.children[1].children[2].children[0].style.backgroundImage =
-        'url(https://search.pstatic.net/common/?autoRotate=true&quality=95&src=http%3A%2F%2Fldb.phinf.naver.net%2F20200427_10%2F1587969016245CR50X_JPEG%2F_G0A0536.jpg&type=f150_150)';
-    restaurant.children[1].children[3].children[0].style.backgroundImage =
-        'url(https://search.pstatic.net/common/?autoRotate=true&quality=95&src=http%3A%2F%2Fldb.phinf.naver.net%2F20160217_196%2F1455703574607ss2iH_JPEG%2F176167593632346_5.jpeg&type=f150_150)';
-
-    restaurant.children[1].children[0].children[1].children[0].textContent = '어글리스토브 신논현강남역점';
-    restaurant.children[1].children[1].children[1].children[0].textContent = '어니언 성수';
-    restaurant.children[1].children[2].children[1].children[0].textContent = '그랜드 워커힐 서울 더파빌리온';
-    restaurant.children[1].children[3].children[1].children[0].textContent = '빌즈 광화문';
-
-    restaurant.children[1].children[0].children[1].children[1].textContent = '강남 어글리스토브 브런치가 맛있는 파스타집';
-    restaurant.children[1].children[1].children[1].children[1].textContent = '성수 어니언 팡도르가 맛있는 베이커리 카페';
-    restaurant.children[1].children[2].children[1].children[1].textContent = '그랜드 워커힐 서울 더파빌리온';
-    restaurant.children[1].children[3].children[1].children[1].textContent = '빌즈 광화문';
-    /*
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var myObj = JSON.parse(this.responseText);
-            
-            for (var i; i < 4; i = i + 1) {
-                restaurant.children[1].children[i].children[0].style.backgoundImage = 'url(http://placehold.it/160x160)';
+    var pub = document.getElementById('pub');
+    var cafe = document.getElementById('cafe');
+    var dessert = document.getElementById('dessert');
+    var playing = document.getElementById('playing');
+    var naverurl = `http://59.6.42.102:8080/api/rank/list?keyword=`;
+    var korearankurl = `http://59.6.42.102:8080/api/rank/tour?city=&category=&order=`; //디폴트
+    $.ajax({
+        //url: `${naverurl}음식점`,
+        url: 'http://59.6.42.102:8080/api/rank/test',
+        type: 'get',
+        dataType: 'json',
+    }).done((response) => {
+        console.log('식당');
+        for (var i = 0; i < 4; i = i + 1) {
+            restaurant.children[1].children[i].children[0].style.backgroundImage = 'url(' + response.data[i].img + ')';
+            restaurant.children[1].children[i].children[1].children[0].append(response.data[i].title);
+            restaurant.children[1].children[i].children[1].children[1].append(response.data[i].content);
+            restaurant.children[1].children[i].children[1].children[2].append('리뷰수 ' + response.data[i].review);
+            if (response.data[i].address) {
+                console.log('주소');
+                restaurant.children[1].children[i].children[1].children[3].append(response.data[i].address);
+            } else if (response.data[i].category.length != 0) {
+                console.log('카테고리');
+                for (var j = 0; j < response.data[i].category.length; j++) {
+                    restaurant.children[1].children[i].children[1].children[3].innerHTML +=
+                        '<div class="body-content-list-category">' + response.data[i].category[j] + '</div>';
+                }
+            } else if (response.data[i].tags.length) {
+                console.log('태그');
+                for (var j = 0; j < response.data[i].tags.length; j++) {
+                    restaurant.children[1].children[i].children[1].children[3].innerHTML +=
+                        '<div class="body-content-list-tags">' + response.data[i].tags[j] + '</div>';
+                }
             }
         }
-    };
-    xmlhttp.open('GET', ' http://59.6.42.102:8080/api/rank/test?keyword=%EC%84%9C%EC%9A%B8%20%EC%B9%B4%ED%8E%98');
-    xmlhttp.send();
-    */
+    });
+    $.ajax({
+        //url: `${naverurl}술집`,
+        url: 'http://59.6.42.102:8080/api/rank/test',
+        type: 'get',
+        dataType: 'json',
+    }).done((response) => {
+        console.log('술집');
+        for (var i = 0; i < 4; i = i + 1) {
+            pub.children[1].children[i].children[0].style.backgroundImage = 'url(' + response.data[i].img + ')';
+            pub.children[1].children[i].children[1].children[0].append(response.data[i].title);
+            pub.children[1].children[i].children[1].children[1].append(response.data[i].content);
+            pub.children[1].children[i].children[1].children[2].append('리뷰수 ' + response.data[i].review);
+            if (response.data[i].address) {
+                console.log('주소');
+                pub.children[1].children[i].children[1].children[3].append(response.data[i].address);
+            } else if (response.data[i].category.length != 0) {
+                console.log('카테고리');
+                for (var j = 0; j < response.data[i].category.length; j++) {
+                    pub.children[1].children[i].children[1].children[3].innerHTML +=
+                        '<div class="body-content-list-category">' + response.data[i].category[j] + '</div>';
+                }
+            } else if (response.data[i].tags.length) {
+                console.log('태그');
+                for (var j = 0; j < response.data[i].tags.length; j++) {
+                    pub.children[1].children[i].children[1].children[3].innerHTML +=
+                        '<div class="body-content-list-tags">' + response.data[i].tags[j] + '</div>';
+                }
+            }
+        }
+    });
+    $.ajax({
+        //url: `${naverurl}카페`,
+        url: 'http://59.6.42.102:8080/api/rank/test',
+        type: 'get',
+        dataType: 'json',
+    }).done((response) => {
+        console.log('카페');
+        for (var i = 0; i < 4; i = i + 1) {
+            cafe.children[1].children[i].children[0].style.backgroundImage = 'url(' + response.data[i].img + ')';
+            cafe.children[1].children[i].children[1].children[0].append(response.data[i].title);
+            cafe.children[1].children[i].children[1].children[1].append(response.data[i].content);
+            cafe.children[1].children[i].children[1].children[2].append('리뷰수 ' + response.data[i].review);
+            if (response.data[i].address) {
+                console.log('주소');
+                cafe.children[1].children[i].children[1].children[3].append(response.data[i].address);
+            } else if (response.data[i].category.length != 0) {
+                console.log('카테고리');
+                for (var j = 0; j < response.data[i].category.length; j++) {
+                    cafe.children[1].children[i].children[1].children[3].innerHTML +=
+                        '<div class="body-content-list-category">' + response.data[i].category[j] + '</div>';
+                }
+            } else if (response.data[i].tags.length) {
+                console.log('태그');
+                for (var j = 0; j < response.data[i].tags.length; j++) {
+                    cafe.children[1].children[i].children[1].children[3].innerHTML +=
+                        '<div class="body-content-list-tags">' + response.data[i].tags[j] + '</div>';
+                }
+            }
+        }
+    });
+
+    $.ajax({
+        //url: `${naverurl}디저트`,
+        url: 'http://59.6.42.102:8080/api/rank/test',
+        type: 'get',
+        dataType: 'json',
+    }).done((response) => {
+        console.log('디저트');
+        for (var i = 0; i < 4; i = i + 1) {
+            dessert.children[1].children[i].children[0].style.backgroundImage = 'url(' + response.data[i].img + ')';
+            dessert.children[1].children[i].children[1].children[0].append(response.data[i].title);
+            dessert.children[1].children[i].children[1].children[1].append(response.data[i].content);
+            dessert.children[1].children[i].children[1].children[2].append('리뷰수 ' + response.data[i].review);
+            if (response.data[i].address) {
+                console.log('주소');
+                dessert.children[1].children[i].children[1].children[3].append(response.data[i].address);
+            } else if (response.data[i].category.length != 0) {
+                console.log('카테고리');
+                for (var j = 0; j < response.data[i].category.length; j++) {
+                    dessert.children[1].children[i].children[1].children[3].innerHTML +=
+                        '<div class="body-content-list-category">' + response.data[i].category[j] + '</div>';
+                }
+            } else if (response.data[i].tags.length) {
+                console.log('태그');
+                for (var j = 0; j < response.data[i].tags.length; j++) {
+                    dessert.children[1].children[i].children[1].children[3].innerHTML +=
+                        '<div class="body-content-list-tags">' + response.data[i].tags[j] + '</div>';
+                }
+            }
+        }
+    });
+    $.ajax({
+        //url: `${korearankurl}`, //여행
+        url: 'http://59.6.42.102:8080/api/rank/test',
+        type: 'get',
+        dataType: 'json',
+    }).done((response) => {
+        console.log('놀기');
+        for (var i = 0; i < 4; i = i + 1) {
+            playing.children[1].children[i].children[0].style.backgroundImage = 'url(' + response.data[i].img + ')';
+            playing.children[1].children[i].children[1].children[0].append(response.data[i].title);
+            playing.children[1].children[i].children[1].children[1].append(response.data[i].content);
+            playing.children[1].children[i].children[1].children[2].append(response.data[i].address);
+        }
+    });
 });
