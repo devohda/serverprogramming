@@ -31,6 +31,11 @@ header {
     font-size: 1em;
     margin-right: 5px;
 }
+#search_icon {
+    margin-top: 10px;
+    width: 30px;
+    height: 30px;
+}
 #main-nav div {
     float: left;
     margin: 0 20px;

@@ -4,6 +4,16 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="../../js/MainHome/home.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" />
+        <!--광고에 사용된 bxslider 관련 css-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css" />
+        <!--광고에 사용된 bxslider 관련 css-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <!--광고에 사용된 bxslider 관련 js-->
+        <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+        <!--광고에 사용된 bxslider 관련 js-->
+        <!--광고 관련 js-->
         <script>
             /*var didScroll;
             var lastScrollTop = 0;
@@ -52,14 +62,22 @@
                     <div>Home</div>
                     <div>Rank</div>
                     <div>Random</div>
+                    <div><img src="../../src/MainHome/search.png" id="search_icon" /></div>
                 </div>
             </div>
         </header>
         <!--중앙 정렬 및 컨텐츠 들어가는 div-->
         <div id="container">
             <!--bxslider 사용할 div-->
-            <div class="slider"></div>
-
+            <div class="slider">
+                <ul class="add_slide">
+                    <li><img src="../../src/MainHome/1.PNG" alt="" class="add_img" /></li>
+                    <li><img src="../../src/MainHome/2.PNG" alt="" class="add_img" /></li>
+                    <li><img src="../../src/MainHome/3.PNG" alt="" class="add_img" /></li>
+                    <!--광고 노출 페이지 중 1-->
+                    <!--광고 노출 페이지 중 2-->
+                </ul>
+            </div>
             <!--광고가 들어갈 div-->
             <div class="advert">
                 <!--동적으로 만들 땐 advert-img 추가하고 background-img url 바꿔주기-->
@@ -84,6 +102,10 @@
                 <div>
                     <img src="../../src/MainHome/random.png" />
                     <div>Rank</div>
+                </div>
+                <div>
+                    <img src="../../src/MainHome/search.png" />
+                    <div>Search</div>
                 </div>
             </div>
         </footer>
