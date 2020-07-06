@@ -1,3 +1,6 @@
+//url 만들기(api 가져오기)
+let url = 'http://59.6.42.102:8080/api/random/pick?keyword=';
+let loca;
 i = 0;
 $(document).ready(function () {
     // 지역 + 카테고리 클릭시 함수
@@ -55,20 +58,15 @@ $(document).ready(function () {
         return course_result;
     }
 
-    //url 만들기(api 가져오기)
-    let url = 'http://59.6.42.102:8080/api/random/pick?keyword=';
-    let location;
-
     // 지역 입력 받기
     $('#search-button').click(function () {
-        location = $('input').val();
+        loca = $('input').val();
     });
 
     //각 버튼 눌렀을 때
 
     $('.food').click(function food() {
         let c = makingCourse();
-        url = url + location + '맛집';
         //<![CDATA[
         $.ajax({
             url: 'http://59.6.42.102:8080/api/random/test',
@@ -82,22 +80,23 @@ $(document).ready(function () {
             },
             success: function (result) {
                 $(c).children('.result-img').attr('src', result.data[0].img);
-                $(c).children('.result-title').append(result.data[0].title);
-                $(c).children('.result-href').attr('href', result.data[0].link);
-                $(c).children('.result-address').append(result.data[0].address);
+                $(c).find('.result-title').append(result.data[0].title);
+                $(c).find('.result-href').attr('href', result.data[0].link);
+                $(c).find('.result-address').append(result.data[0].address);
                 var s = result.data[0].category;
                 $(s).each(function (index, item) {
                     $(c)
-                        .children('.result-category')
+                        .find('.result-category')
                         .append(item + ' ');
                 });
                 var s2 = result.data[0].tags;
                 $(s2).each(function (index, item) {
                     $(c)
-                        .children('.result-tags')
+                        .find('.result-tags')
                         .append('"' + item + '" ');
                 });
                 COURSE.appendChild(c);
+                c.classList.add('foodbox');
             },
         });
         //]]>
@@ -105,42 +104,6 @@ $(document).ready(function () {
 
     $('.cafe').click(function () {
         let c = makingCourse();
-        url = url + location + '카페';
-        //<![CDATA[
-        $.ajax({
-            url: 'http://59.6.42.102:8080/api/random/test',
-            //데이터전송및요청할URL 주소 -> 변수 url의 값으로 교체 예정
-            type: 'GET',
-            dataType: 'JSON',
-
-            error: function () {
-                alert('통신실패!!!!');
-            },
-            success: function (result) {
-                $(c).children('.result-img').attr('src', result.data[0].img);
-                $(c).children('.result-title').append(result.data[0].title);
-                $(c).children('.result-href').attr('href', result.data[0].link);
-                $(c).children('.result-address').append(result.data[0].address);
-                var s = result.data[0].category;
-                $(s).each(function (index, item) {
-                    $(c)
-                        .children('.result-category')
-                        .append(item + ' ');
-                });
-                var s2 = result.data[0].tags;
-                $(s2).each(function (index, item) {
-                    $(c)
-                        .children('.result-tags')
-                        .append('"' + item + '" ');
-                });
-                COURSE.appendChild(c);
-            },
-        });
-        //]]>
-    });
-    $('.drink').click(function () {
-        let c = makingCourse();
-        url = url + location + '주점';
         //<![CDATA[
         $.ajax({
             url: 'http://59.6.42.102:8080/api/random/test',
@@ -169,13 +132,13 @@ $(document).ready(function () {
                         .append('"' + item + '" ');
                 });
                 COURSE.appendChild(c);
+                c.classList.add('cafebox');
             },
         });
         //]]>
     });
-    $('.play').click(function () {
+    $('.drink').click(function () {
         let c = makingCourse();
-        url = url + location + '놀기';
         //<![CDATA[
         $.ajax({
             url: 'http://59.6.42.102:8080/api/random/test',
@@ -188,24 +151,163 @@ $(document).ready(function () {
             },
             success: function (result) {
                 $(c).children('.result-img').attr('src', result.data[0].img);
-                $(c).children('.result-title').append(result.data[0].title);
-                $(c).children('.result-href').attr('href', result.data[0].link);
-                $(c).children('.result-address').append(result.data[0].address);
+                $(c).find('.result-title').append(result.data[0].title);
+                $(c).find('.result-href').attr('href', result.data[0].link);
+                $(c).find('.result-address').append(result.data[0].address);
                 var s = result.data[0].category;
                 $(s).each(function (index, item) {
                     $(c)
-                        .children('.result-category')
+                        .find('.result-category')
                         .append(item + ' ');
                 });
                 var s2 = result.data[0].tags;
                 $(s2).each(function (index, item) {
                     $(c)
-                        .children('.result-tags')
+                        .find('.result-tags')
                         .append('"' + item + '" ');
                 });
                 COURSE.appendChild(c);
+                c.classList.add('drinkbox');
             },
         });
         //]]>
+    });
+    $('.play').click(function () {
+        let c = makingCourse();
+        //<![CDATA[
+        $.ajax({
+            url: 'http://59.6.42.102:8080/api/random/test',
+            //데이터전송및요청할URL 주소 -> 변수 url의 값으로 교체 예정
+            type: 'GET',
+            dataType: 'JSON',
+
+            error: function () {
+                alert('통신실패!!!!');
+            },
+            success: function (result) {
+                $(c).children('.result-img').attr('src', result.data[0].img);
+                $(c).find('.result-title').append(result.data[0].title);
+                $(c).find('.result-href').attr('href', result.data[0].link);
+                $(c).find('.result-address').append(result.data[0].address);
+                var s = result.data[0].category;
+                $(s).each(function (index, item) {
+                    $(c)
+                        .find('.result-category')
+                        .append(item + ' ');
+                });
+                var s2 = result.data[0].tags;
+                $(s2).each(function (index, item) {
+                    $(c)
+                        .find('.result-tags')
+                        .append('"' + item + '" ');
+                });
+                COURSE.appendChild(c);
+                c.classList.add('playbox');
+            },
+        });
+        //]]>
+    });
+});
+
+$(document).on('click', '.delete', function () {
+    let c = $(this).parent();
+    c.remove();
+});
+
+$(document).on('click', '.re-load', function () {
+    let c = $(this).parents('.course-result');
+    let newUrl = url;
+    if ($(c).hasClass('foodbox') === true) {
+        newUrl = newUrl + loca + '맛집';
+    }
+    if ($(c).hasClass('cafebox') === true) {
+        newUrl = newUrl + loca + '카페';
+    }
+    if ($(c).hasClass('drinkbox') === true) {
+        newUrl = newUrl + loca + '주점';
+    }
+    if ($(c).hasClass('playbox') === true) {
+        newUrl = newUrl + loca + '놀기';
+    }
+    $.ajax({
+        url: 'http://59.6.42.102:8080/api/random/test',
+        //데이터전송및요청할URL 주소 -> 변수 url의 값으로 교체 예정
+        type: 'GET',
+        dataType: 'JSON',
+
+        error: function () {
+            alert('통신실패!!!!');
+        },
+        success: function (result) {
+            $(c).children('.result-img').attr('src', result.data[0].img);
+            $(c).find('.result-title').text(result.data[0].title);
+            $(c).find('.result-href').attr('href', result.data[0].link);
+            $(c).find('.result-address').text(result.data[0].address);
+            var s = result.data[0].category;
+            $(c).find('.result-category').text('');
+            $(s).each(function (index, item) {
+                $(c)
+                    .find('.result-category')
+                    .append(item + ' ');
+            });
+            var s2 = result.data[0].tags;
+            $(c).find('.result-tags').text('');
+            $(s2).each(function (index, item) {
+                $(c)
+                    .find('.result-tags')
+                    .append('"' + item + '" ');
+            });
+        },
+    });
+});
+
+$(document).on('click', '#all-re-load', function () {
+    let resultAll = $('.course-result');
+
+    $(resultAll).each(function (index, item) {
+        let c = item;
+        let newUrl = url;
+        if ($(c).hasClass('foodbox') === true) {
+            newUrl = newUrl + loca + '맛집';
+        }
+        if ($(c).hasClass('cafebox') === true) {
+            newUrl = newUrl + loca + '카페';
+        }
+        if ($(c).hasClass('drinkbox') === true) {
+            newUrl = newUrl + loca + '주점';
+        }
+        if ($(c).hasClass('playbox') === true) {
+            newUrl = newUrl + loca + '놀기';
+        }
+        $.ajax({
+            url: 'http://59.6.42.102:8080/api/random/test',
+            //데이터전송및요청할URL 주소 -> 변수 url의 값으로 교체 예정
+            type: 'GET',
+            dataType: 'JSON',
+
+            error: function () {
+                alert('통신실패!!!!');
+            },
+            success: function (result) {
+                $(c).children('.result-img').attr('src', result.data[0].img);
+                $(c).find('.result-title').text(result.data[0].title);
+                $(c).find('.result-href').attr('href', result.data[0].link);
+                $(c).find('.result-address').text(result.data[0].address);
+                var s = result.data[0].category;
+                $(c).find('.result-category').text('');
+                $(s).each(function (index, item) {
+                    $(c)
+                        .find('.result-category')
+                        .append(item + ' ');
+                });
+                var s2 = result.data[0].tags;
+                $(c).find('.result-tags').text('');
+                $(s2).each(function (index, item) {
+                    $(c)
+                        .find('.result-tags')
+                        .append('"' + item + '" ');
+                });
+            },
+        });
     });
 });
