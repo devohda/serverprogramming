@@ -30,17 +30,17 @@ header {
     float: right;
     font-size: 1em;
     margin-right: 5px;
+    line-height: 50px;
+    padding-top: 5px;
 }
-#search_icon {
-    margin-top: 10px;
-    width: 30px;
-    height: 30px;
-}
+
 #main-nav div {
     float: left;
     margin: 0 20px;
 }
-
+#main-nav img {
+    height: 25px;
+}
 header img {
     height: 50px;
 }
