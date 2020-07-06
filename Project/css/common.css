@@ -46,6 +46,10 @@ header img {
 }
 
 /*내용 들어가는 부분*/
+body {
+    background-color: #fafafa;
+}
+
 #container {
     width: 760px;
     margin: 30px auto 0;
@@ -57,6 +61,7 @@ footer {
     height: 70px;
     border-top: 1px solid #e6e6e6;
     font-size: 2em;
+    background-color: white;
 }
 .content {
     /*desktop 환경에선 footer 내용이 보임*/
@@ -101,7 +106,6 @@ footer {
         position: fixed;
         bottom: 0;
         z-index: 100;
-        background-color: white;
         width: 100%;
     }
     .content {
