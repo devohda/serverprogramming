@@ -37,6 +37,7 @@ $(document).ready(function () {
 
         const re_load = document.createElement('button');
         re_load.classList.add('re-load');
+        re_load.innerText = '다시 뽑기';
 
         course.appendChild(result_title);
         course.appendChild(result_href);
@@ -152,19 +153,19 @@ $(document).ready(function () {
             },
             success: function (result) {
                 $(c).children('.result-img').attr('src', result.data[0].img);
-                $(c).children('.result-title').append(result.data[0].title);
-                $(c).children('.result-href').attr('href', result.data[0].link);
-                $(c).children('.result-address').append(result.data[0].address);
+                $(c).find('.result-title').append(result.data[0].title);
+                $(c).find('.result-href').attr('href', result.data[0].link);
+                $(c).find('.result-address').append(result.data[0].address);
                 var s = result.data[0].category;
                 $(s).each(function (index, item) {
                     $(c)
-                        .children('.result-category')
+                        .find('.result-category')
                         .append(item + ' ');
                 });
                 var s2 = result.data[0].tags;
                 $(s2).each(function (index, item) {
                     $(c)
-                        .children('.result-tags')
+                        .find('.result-tags')
                         .append('"' + item + '" ');
                 });
                 COURSE.appendChild(c);
@@ -207,23 +208,4 @@ $(document).ready(function () {
         });
         //]]>
     });
-    //카드 하나 지우기
-    $('.delete').click(function () {
-        $(this).parent().remove();
-    });
-
-    //reload 하기
-    $('.re-load').click(function () {
-        var box = $(this).parents('.course-result');
-        box.remove();
-    });
-
-
-
-
-
-
-
-
-    
 });
