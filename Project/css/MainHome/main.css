@@ -1,18 +1,17 @@
-
-
 /*광고 들어갈 부분 bxslider*/
 .slider {
     height: 400px;
     margin-top: 10px;
     border: 1px #e6e6e6 solid;
     border-radius: 5px;
-
-    background-color: #ddd;/*구획 보이게 하려고 추가한 것임 삭제예정*/
+    background-color: #ddd; /*구획 보이게 하려고 추가한 것임 삭제예정*/
+}
+.add_slide img {
+    height: 400px;
 }
 
-
 /*하단 광고 부분*/
-.advert{
+.advert {
     overflow: hidden;
     display: flex;
     justify-content: space-between;
@@ -21,10 +20,10 @@
     margin: 20px 0;
 }
 
-.advert-img{
-    background-image: url("../../src/MainHome/ashley.jpg");
+.advert-img {
+    background-image: url('../../src/MainHome/ashley.jpg');
     background-size: cover;
-    
+
     width: 45%; /*가져오는 광고의 스타일에 따라 크키가 달라져야 할 듯. 미디어 쿼리를 위해 % 적용*/
     padding-top: 25%; /*페이지 줄이면 비율 따라서 동일한 이미지가 축소되도록 만듦*/
     background-position: center center;
@@ -34,25 +33,26 @@
     margin: 10px 0;
 }
 
-
 /* 태블릿 pc 미디어쿼리 */
 @media (max-width: 767px) {
-   
     /*bx slider 적용 부분*/
     .slider {
         height: 300px;
     }
+    .add_slide img {
+        height: 300px;
+    }
 
     /*하단 광고 적용 부분*/
-    .advert{
+    .advert {
         overflow: hidden;
         padding: 0 20px;
     }
 
-    .advert-img{
+    .advert-img {
         /*width: 40%;
         height: 210px;*/
-        background-image: url("../../src/MainHome/ashley.jpg");
+        background-image: url('../../src/MainHome/ashley.jpg');
         background-size: cover;
         width: 80%;
         padding-top: 35%;
@@ -60,15 +60,15 @@
         float: left;
         margin: 10px auto;
     }
-
 }
 
 @media (max-width: 320px) {
-    
     /*bx slider 적용 부분*/
     .slider {
         width: 100%;
         height: 150px;
     }
-   
+    .add_slide img {
+        height: 150px;
+    }
 }
