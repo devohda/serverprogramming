@@ -11,6 +11,8 @@ $(document).ready(function () {
     function makingCourse() {
         const course_result = document.createElement('div');
         course_result.classList.add('course-result');
+        course_result.classList.add('animate__animated');
+        course_result.classList.add('animate__bouncein');
 
         const result_img = document.createElement('img');
         result_img.classList.add('result-img');
@@ -67,6 +69,10 @@ $(document).ready(function () {
 
     $('.food').click(function food() {
         let c = makingCourse();
+        COURSE.appendChild(c);
+        c.classList.add('foodbox');
+        let dom = '<div class="loader"></div>';
+        $('.course-result').append(dom);
         //<![CDATA[
         $.ajax({
             url: 'http://59.6.42.102:8080/api/random/test',
@@ -76,9 +82,11 @@ $(document).ready(function () {
 
             error: function () {
                 alert('통신실패!!!!');
-                COURSE.appendChild(c);
+                let dom = '통신실패';
+                $('.course-result').html(dom);
             },
             success: function (result) {
+                $('.loader').css({ display: 'none' });
                 $(c).children('.result-img').attr('src', result.data[0].img);
                 $(c).find('.result-title').append(result.data[0].title);
                 $(c).find('.result-href').attr('href', result.data[0].link);
@@ -95,8 +103,6 @@ $(document).ready(function () {
                         .find('.result-tags')
                         .append('"' + item + '" ');
                 });
-                COURSE.appendChild(c);
-                c.classList.add('foodbox');
             },
         });
         //]]>
