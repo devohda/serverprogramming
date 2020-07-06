@@ -12,16 +12,14 @@
     border-radius: 5px;
 }
 .search-position {
-    width: 30%;
+    width: 60%;
     margin: 0 auto;
 }
-.search-position p {
-    float: left;
-}
-.search-position input {
-    clear: both;
-}
 
+.search-position input {
+    width: 80%;
+    height: 20px;
+}
 /*카테고리 선택란*/
 .category-area {
     width: 100%;
