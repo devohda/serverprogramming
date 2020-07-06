@@ -89,8 +89,8 @@ $(document).ready(function () {
                 $(c).children('.result-img').attr('src', result.data[0].img);
                 $(c).find('.result-title').append(result.data[0].title);
                 $(c).find('.result-href').attr('href', result.data[0].link);
+                $(c).find('.result-href').attr('target', '_blank');
                 $(c).find('.result-address').append(result.data[0].address);
-                $(c).find('.result-link').attr();
                 var s = result.data[0].category;
                 $(s).each(function (index, item) {
                     $(c)
