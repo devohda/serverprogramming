@@ -133,7 +133,7 @@ button:hover {
     transform: translateY(-7px);
 }
 
-/*코스 추가되는 부분*/
+/********코스 추가되는 부분********/
 .course-area {
     padding: 10px;
     min-height: 700px;
@@ -141,12 +141,28 @@ button:hover {
     border: 1px solid #f0f0f0;
 }
 .course-result {
-    margin: 10px auto 0;
+    margin: 30px auto;
     width: 90%;
     border-radius: 5px;
-    box-shadow: 3px 3px 20px #ddd;
     display: flex;
     position: relative;
+}
+
+/*종류마다 box-shadow 다르게 지정*/
+.foodbox {
+    box-shadow: 2px 2px 20px #fa9f95;
+}
+
+.cafebox {
+    box-shadow: 2px 2px 20px #c47256;
+}
+
+.drinkbox {
+    box-shadow: 2px 2px 20px #1c3557;
+}
+
+.playbox {
+    box-shadow: 2px 2px 20px #82bbbd;
 }
 
 .course {
