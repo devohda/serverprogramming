@@ -279,4 +279,10 @@ $(document).ready(() => {
             ).text()}-${$('#search-category option:checked').text()}-${$('#search-order option:checked').text()}`;
         }
     });
+    //엔터키 검색
+    $('#search-input').keypress((e) => {
+        if (e.which === 13) {
+            getPost();
+        }
+    });
 });
