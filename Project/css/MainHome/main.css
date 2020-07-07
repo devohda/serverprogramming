@@ -22,7 +22,6 @@
 }
 
 .advert-img {
-    background-image: url('../../src/MainHome/ashley.jpg');
     background-size: cover;
 
     width: 45%; /*가져오는 광고의 스타일에 따라 크키가 달라져야 할 듯. 미디어 쿼리를 위해 % 적용*/
@@ -34,6 +33,18 @@
     margin: 10px 0;
 }
 
+.advert-img:nth-child(1) {
+    background-image: url('../../src/MainHome/ashley.jpg');
+}
+.advert-img:nth-child(2) {
+    background-image: url('../../src/MainHome/yanolja.jpg');
+}
+.advert-img:nth-child(3) {
+    background-image: url('../../src/MainHome/waterbomb.PNG');
+}
+.advert-img:nth-child(4) {
+    background-image: url('../../src/MainHome/mango.png');
+}
 /* 태블릿 pc 미디어쿼리 */
 @media (max-width: 767px) {
     /*bx slider 적용 부분*/
