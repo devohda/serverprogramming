@@ -202,7 +202,7 @@
 }
 .tag {
     float: left;
-    padding: 0.7% 2%;
+    padding: 0.2rem 0.5rem;
     margin-right: 2%;
     background-color: #5872b9;
     color: white;
@@ -302,10 +302,6 @@
     }
     .result-category {
         margin-bottom: 1rem;
-    }
-
-    .tag {
-        width: 2rem;
     }
 }
 @media (max-width: 420px) {

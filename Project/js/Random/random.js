@@ -1,7 +1,13 @@
 //url 만들기(api 가져오기)
 let url = 'http://59.6.42.102:8080/api/random/pick?keyword=';
-let loca;
+let loca = '';
+let randomText = ['피씨방', '노래방', '당구장', '방탈출', '공원', '공방', '클럽', '보드게임'];
 i = 0;
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 $(document).ready(function () {
     // 지역 + 카테고리 클릭시 함수
 
@@ -63,6 +69,7 @@ $(document).ready(function () {
     // 지역 입력 받기
     $('#search-button').click(function () {
         loca = $('input').val();
+        console.log(loca + '1');
     });
 
     //각 버튼 눌렀을 때
@@ -74,8 +81,9 @@ $(document).ready(function () {
         let dom1 = '<div class="loader"></div>';
         $(c).append(dom1);
         //<![CDATA[
+        console.log(loca + '2');
         $.ajax({
-            url: 'http://59.6.42.102:8080/api/random/test',
+            url: `${url}${loca}음식`,
             //데이터전송및요청할URL 주소 -> 변수 url의 값으로 교체 예정
             type: 'GET',
             dataType: 'JSON',
@@ -117,7 +125,7 @@ $(document).ready(function () {
         $(c).append(dom1);
         //<![CDATA[
         $.ajax({
-            url: 'http://59.6.42.102:8080/api/random/test',
+            url: `${url}${loca}카페`,
             //데이터전송및요청할URL 주소 -> 변수 url의 값으로 교체 예정
             type: 'GET',
             dataType: 'JSON',
@@ -157,7 +165,7 @@ $(document).ready(function () {
         $(c).append(dom1);
         //<![CDATA[
         $.ajax({
-            url: 'http://59.6.42.102:8080/api/random/test',
+            url: `${url}${loca}술집`,
             //데이터전송및요청할URL 주소 -> 변수 url의 값으로 교체 예정
             type: 'GET',
             dataType: 'JSON',
@@ -195,7 +203,7 @@ $(document).ready(function () {
         c.classList.add('playbox');
         //<![CDATA[
         $.ajax({
-            url: 'http://59.6.42.102:8080/api/random/test',
+            url: `${url}${loca}${randomText[getRandomInt(0, 8)]}`,
             //데이터전송및요청할URL 주소 -> 변수 url의 값으로 교체 예정
             type: 'GET',
             dataType: 'JSON',
@@ -249,10 +257,10 @@ $(document).on('click', '.re-load', function () {
         newUrl = newUrl + loca + '주점';
     }
     if ($(c).hasClass('playbox') === true) {
-        newUrl = newUrl + loca + '놀기';
+        newUrl = newUrl + loca + randomText[getRandomInt(0, 8)];
     }
     $.ajax({
-        url: 'http://59.6.42.102:8080/api/random/test',
+        url: `${newUrl}`,
         //데이터전송및요청할URL 주소 -> 변수 url의 값으로 교체 예정
         type: 'GET',
         dataType: 'JSON',
@@ -300,13 +308,13 @@ $(document).on('click', '#all-re-load', function () {
             newUrl = newUrl + loca + '카페';
         }
         if ($(c).hasClass('drinkbox') === true) {
-            newUrl = newUrl + loca + '주점';
+            newUrl = newUrl + loca + '술집';
         }
         if ($(c).hasClass('playbox') === true) {
-            newUrl = newUrl + loca + '놀기';
+            newUrl = newUrl + loca + randomText[getRandomInt(0, 8)];
         }
         $.ajax({
-            url: 'http://59.6.42.102:8080/api/random/test',
+            url: `${newUrl}`,
             //데이터전송및요청할URL 주소 -> 변수 url의 값으로 교체 예정
             type: 'GET',
             dataType: 'JSON',
