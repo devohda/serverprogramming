@@ -19,7 +19,7 @@
 
 .search-position input {
     width: 80%;
-    height: 40px;
+    height: 2.5rem;
     border: 1px solid #ddd;
     border-radius: 40px;
     padding-left: 30px;
@@ -33,7 +33,7 @@
 }
 
 #search-button {
-    height: 40px;
+    height: 2.5rem;
     outline: none;
     border: 0;
     background-color: inherit;
@@ -41,6 +41,7 @@
     margin-left: 12px;
     font-size: 1em;
     font-weight: 500;
+    float: right;
 }
 
 /*카테고리 선택란*/
@@ -71,7 +72,7 @@
     width: 70px;
     height: 20px;
     text-align: center;
-    font-size: 0.8em;
+    font-size: 0.8rem;
     font-weight: bold;
 }
 
@@ -80,31 +81,6 @@
     background-color: #93a6d9;
     transition: all 250ms linear;
 }
-
-/*button {
-    width: 140px;
-    height: 45px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    font-weight: 500;
-    color: #000;
-    background-color: #fff;
-    border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-}
-
-button:hover {
-    background-color: #2ee59d;
-    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-    color: #fff;
-    transform: translateY(-7px);
-}*/
 
 #all-re-load {
     width: 120px;
@@ -150,27 +126,28 @@ button:hover {
 
 /*종류마다 box-shadow 다르게 지정*/
 .foodbox {
-    box-shadow: 2px 2px 20px #fa9f95;
+    box-shadow: -1px 2px 4px 0px #ffb9b7;
 }
 
 .cafebox {
-    box-shadow: 2px 2px 20px #c47256;
+    box-shadow: -1px 2px 4px 0px #8b6a5e;
 }
 
 .drinkbox {
-    box-shadow: 2px 2px 20px #1c3557;
+    box-shadow: -1px 2px 4px 0px #1c3557;
 }
 
 .playbox {
-    box-shadow: 2px 2px 20px #82bbbd;
+    box-shadow: -1px 2px 4px 0px #82bbbd;
 }
 
 .course {
-    width: 60%;
+    width: 65%;
+    margin-left: 20px;
 }
 
 .delete {
-    width: 25px;
+    width: 18px;
     position: absolute;
     right: 10px;
 }
@@ -196,13 +173,94 @@ button:hover {
 }
 
 .result-title {
-    font-size: 25px;
+    font-size: 1.5rem;
     font-weight: 600;
+    float: left;
+    margin-top: 10px;
+}
+
+.result-content p {
+    font-size: 15px;
+}
+
+.result-content .result-address {
+    clear: both;
+    color: #555;
+    font-size: 1rem;
+}
+
+.result-category {
+    font-style: italic;
+}
+
+.result-address {
+    margin-bottom: 10px;
+}
+
+.result-tags {
+    margin-top: 13px;
+}
+.tag {
+    float: left;
+    padding: 0.6% 2%;
+    margin-right: 2%;
+    background-color: #5872b9;
+    color: white;
+    font-size: 0.7em;
+    border-radius: 5px;
+}
+
+.re-load,
+.result-href {
+    width: 70px;
+    height: 25px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: #000;
+    background-color: #93a6d95d;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    position: absolute;
+}
+.re-load:hover,
+.result-href:hover {
+    background-color: #bbb;
+    box-shadow: 0px 15px 20px #d4d4d45b;
+    color: #fff;
+    transform: translateY(-7px);
+}
+
+.re-load {
+    bottom: 12px;
+    right: 12px;
+}
+.result-href {
+    bottom: 12px;
+    right: 100px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 25px;
 }
 
 @media (max-width: 767px) {
+    * {
+        clear: none;
+    }
+    /*폰트 반응형*/
     html {
+        font-size: 14px;
         padding-bottom: 100px;
+    }
+
+    .search-position input {
+        width: 60%;
     }
 
     .course-area {
@@ -211,6 +269,7 @@ button:hover {
     .course-result {
         flex-direction: column;
         align-items: center;
+        padding-bottom: 12px;
     }
 
     .course {
@@ -219,23 +278,37 @@ button:hover {
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin: 0;
+    }
+
+    .result-title {
+        font-size: 1.4em;
     }
 
     .result-content {
         width: 100%;
-        text-align: left;
+        text-align: center;
     }
 
     .result-img {
+        width: 50%;
         margin-top: 25px;
     }
 
-    /*검색창*/
-    .search-position input {
-        width: 60%;
+    .result-category {
+        margin-bottom: 25px;
+    }
+}
+@media (max-width: 420px) {
+    html {
+        font-size: 12px;
     }
 }
 @media (max-width: 320px) {
+    /*폰트 반응형*/
+    html {
+        font-size: 11px;
+    }
     #container {
         width: 100%;
     }

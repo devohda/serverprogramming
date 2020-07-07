@@ -30,7 +30,7 @@ $(document).ready(function () {
 
         const result_address = document.createElement('p');
         const result_category = document.createElement('p');
-        const result_tags = document.createElement('p');
+        const result_tags = document.createElement('div');
 
         result_address.classList.add('result-address');
         result_category.classList.add('result-category');
@@ -45,8 +45,8 @@ $(document).ready(function () {
         re_load.innerText = '다시 뽑기';
 
         course.appendChild(result_title);
-        course.appendChild(result_href);
         course.appendChild(result_content);
+        course.appendChild(result_href);
         course.appendChild(re_load);
 
         const del = document.createElement('img');
@@ -99,9 +99,10 @@ $(document).ready(function () {
                 });
                 var s2 = result.data[0].tags;
                 $(s2).each(function (index, item) {
-                    $(c)
-                        .find('.result-tags')
-                        .append('"' + item + '" ');
+                    const tag = document.createElement('div');
+                    tag.classList.add('tag');
+                    tag.innerText = '#' + item;
+                    $(c).find('.result-tags').append(tag);
                 });
             },
         });
@@ -139,9 +140,10 @@ $(document).ready(function () {
                 });
                 var s2 = result.data[0].tags;
                 $(s2).each(function (index, item) {
-                    $(c)
-                        .find('.result-tags')
-                        .append('"' + item + '" ');
+                    const tag = document.createElement('div');
+                    tag.classList.add('tag');
+                    tag.innerText = '#' + item;
+                    $(c).find('.result-tags').append(tag);
                 });
             },
         });
@@ -178,9 +180,10 @@ $(document).ready(function () {
                 });
                 var s2 = result.data[0].tags;
                 $(s2).each(function (index, item) {
-                    $(c)
-                        .find('.result-tags')
-                        .append('"' + item + '" ');
+                    const tag = document.createElement('div');
+                    tag.classList.add('tag');
+                    tag.innerText = '#' + item;
+                    $(c).find('.result-tags').append(tag);
                 });
             },
         });
@@ -215,9 +218,10 @@ $(document).ready(function () {
                 });
                 var s2 = result.data[0].tags;
                 $(s2).each(function (index, item) {
-                    $(c)
-                        .find('.result-tags')
-                        .append('"' + item + '" ');
+                    const tag = document.createElement('div');
+                    tag.classList.add('tag');
+                    tag.innerText = '#' + item;
+                    $(c).find('.result-tags').append(tag);
                 });
             },
         });
@@ -272,9 +276,10 @@ $(document).on('click', '.re-load', function () {
             var s2 = result.data[0].tags;
             $(c).find('.result-tags').text('');
             $(s2).each(function (index, item) {
-                $(c)
-                    .find('.result-tags')
-                    .append('"' + item + '" ');
+                const tag = document.createElement('div');
+                tag.classList.add('tag');
+                tag.innerText = '#' + item;
+                $(c).find('.result-tags').append(tag);
             });
         },
     });
@@ -327,9 +332,11 @@ $(document).on('click', '#all-re-load', function () {
                 var s2 = result.data[0].tags;
                 $(c).find('.result-tags').text('');
                 $(s2).each(function (index, item) {
-                    $(c)
-                        .find('.result-tags')
-                        .append('"' + item + '" ');
+                    $(c);
+                    const tag = document.createElement('div');
+                    tag.classList.add('tag');
+                    tag.innerText = '#' + item;
+                    $(c).find('.result-tags').append(tag);
                 });
             },
         });
