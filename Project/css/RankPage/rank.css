@@ -26,6 +26,21 @@
     #container {
         padding-bottom: 50px;
     }
+    .body-content-tour {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        /* 여러 줄 자르기 추가 스타일 */
+        white-space: normal;
+        line-height: 1.8;
+        height: 1.8em;
+        text-align: left;
+        word-wrap: break-word;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
 }
 .cardview {
     display: flex;
@@ -35,7 +50,7 @@
 }
 .cardview-title {
     text-align: center;
-    font-size: 28px;
+    font-size: 1.4rem;
     font-weight: 510;
     font-stretch: normal;
     font-style: normal;
@@ -86,8 +101,8 @@
     font-size: 0.9rem;
 }
 .body-content {
-    margin-bottom: 20px;
-    font-size: 18px;
+    /*margin-bottom: 20px;*/
+    font-size: 0.9rem;
 
     white-space: nowrap;
     overflow: hidden;
@@ -104,8 +119,8 @@
     -webkit-box-orient: vertical;
 }
 .body-content-tour {
-    margin-bottom: 20px;
-    font-size: 18px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
 
     white-space: nowrap;
     overflow: hidden;
@@ -123,8 +138,8 @@
 }
 
 .body-review {
-    font-size: 16px;
-    margin-bottom: 20px;
+    font-size: 0.8rem;
+    /*margin-bottom: 20px;*/
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -139,7 +154,7 @@
     color: #bfbfbf;
 }
 .body-address {
-    font-size: 16px;
+    font-size: 0.8rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -154,13 +169,15 @@
 }
 .body-content-extra {
     display: flex;
-    font-size: 12px;
+    font-size: 0.9rem;
+
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     /* 여러 줄 자르기 추가 스타일 */
     white-space: normal;
     line-height: 1.8;
+    height: 1.8em;
     text-align: left;
     word-wrap: break-word;
     -webkit-line-clamp: 1;

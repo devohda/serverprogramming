@@ -7,18 +7,26 @@ $(document).ready(function () {
     var naverurl = `http://59.6.42.102:8080/api/rank/list?keyword=`;
     var korearankurl = `http://59.6.42.102:8080/api/rank/tour?city=&category=&order=`; //디폴트
     $.ajax({
-        //url: `${naverurl}음식점`,
-        url: 'http://59.6.42.102:8080/api/rank/test',
+        url: `${naverurl}음식점`,
+        //url: 'http://59.6.42.102:8080/api/rank/test',
         type: 'get',
         dataType: 'json',
     }).done((response) => {
         console.log('식당');
         for (var i = 0; i < 4; i = i + 1) {
-            restaurant.children[1].children[i].onclick = console.log('1'); //window.open(response.data[i].link);
+            /*
+            function func() {
+                window.open(response.data[i].link);
+            }
+            restaurant.children[1].children[i].addEventListener('click', func); //window.open(response.data[i].link);
+            */
             restaurant.children[1].children[i].children[0].style.backgroundImage = 'url(' + response.data[i].img + ')';
             restaurant.children[1].children[i].children[1].children[0].children[0].append(response.data[i].title);
             for (var j = 0; j < response.data[i].category.length; j++) {
                 restaurant.children[1].children[i].children[1].children[0].children[1].innerHTML += response.data[i].category[j] + ' ';
+            }
+            if (response.data[i].content == '') {
+                restaurant.children[1].children[i].children[1].children[1].style.display = 'none';
             }
             restaurant.children[1].children[i].children[1].children[1].append(response.data[i].content);
             restaurant.children[1].children[i].children[1].children[2].append('리뷰 ' + response.data[i].review);
@@ -35,8 +43,8 @@ $(document).ready(function () {
         }
     });
     $.ajax({
-        //url: `${naverurl}술집`,
-        url: 'http://59.6.42.102:8080/api/rank/test',
+        url: `${naverurl}술집`,
+        //url: 'http://59.6.42.102:8080/api/rank/test',
         type: 'get',
         dataType: 'json',
     }).done((response) => {
@@ -46,6 +54,9 @@ $(document).ready(function () {
             pub.children[1].children[i].children[1].children[0].children[0].append(response.data[i].title);
             for (var j = 0; j < response.data[i].category.length; j++) {
                 pub.children[1].children[i].children[1].children[0].children[1].innerHTML += response.data[i].category[j] + ' ';
+            }
+            if (response.data[i].content == '') {
+                pub.children[1].children[i].children[1].children[1].style.display = 'none';
             }
             pub.children[1].children[i].children[1].children[1].append(response.data[i].content);
             pub.children[1].children[i].children[1].children[2].append('리뷰수 ' + response.data[i].review);
@@ -62,8 +73,8 @@ $(document).ready(function () {
         }
     });
     $.ajax({
-        //url: `${naverurl}카페`,
-        url: 'http://59.6.42.102:8080/api/rank/test',
+        url: `${naverurl}카페`,
+        //url: 'http://59.6.42.102:8080/api/rank/test',
         type: 'get',
         dataType: 'json',
     }).done((response) => {
@@ -73,6 +84,9 @@ $(document).ready(function () {
             cafe.children[1].children[i].children[1].children[0].children[0].append(response.data[i].title);
             for (var j = 0; j < response.data[i].category.length; j++) {
                 cafe.children[1].children[i].children[1].children[0].children[1].innerHTML += response.data[i].category[j] + ' ';
+            }
+            if (response.data[i].content == '') {
+                cafe.children[1].children[i].children[1].children[1].style.display = 'none';
             }
             cafe.children[1].children[i].children[1].children[1].append(response.data[i].content);
             cafe.children[1].children[i].children[1].children[2].append('리뷰수 ' + response.data[i].review);
@@ -90,8 +104,8 @@ $(document).ready(function () {
     });
 
     $.ajax({
-        //url: `${naverurl}디저트`,
-        url: 'http://59.6.42.102:8080/api/rank/test',
+        url: `${naverurl}디저트`,
+        //url: 'http://59.6.42.102:8080/api/rank/test',
         type: 'get',
         dataType: 'json',
     }).done((response) => {
@@ -101,6 +115,9 @@ $(document).ready(function () {
             dessert.children[1].children[i].children[1].children[0].children[0].append(response.data[i].title);
             for (var j = 0; j < response.data[i].category.length; j++) {
                 dessert.children[1].children[i].children[1].children[0].children[1].innerHTML += response.data[i].category[j] + ' ';
+            }
+            if (response.data[i].content == '') {
+                dessert.children[1].children[i].children[1].children[1].style.display = 'none';
             }
             dessert.children[1].children[i].children[1].children[1].append(response.data[i].content);
             dessert.children[1].children[i].children[1].children[2].append('리뷰수 ' + response.data[i].review);
