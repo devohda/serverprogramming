@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+        <link rel="stylesheet" type="text/css" href="../../css/SearchPage/search.css" />
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"
+        ></script>
+        <script type="text/javascript" src="../../js/SearchPage/search.js"></script>
+        <title>Ya GOLLA</title>
+        <style></style>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <div id="insideheader">
+                <!--로고 div-->
+                <img src="../../src/logo2.png" alt="logo" />
+                <!--네비게이션 들어가는 div-->
+                <div id="main-nav">
+                    <div>Home</div>
+                    <div>Rank</div>
+                    <div>Random</div>
+                </div>
+            </div>
+        </header>
+        <div id="container">
+            <div id="restaurant">
+                <div class="cardview-title">야골라 통합검색</div>
+                <div id="seacrh-form">
+                    <select id="search-select" class="search-type">
+                        <option value="list">음식점·시설</option>
+                        <option value="tour">관광지</option>
+                    </select>
+                    <span id="search-method">
+                        <input id="search-input" placeholder="위치 + 음식점·시설으로 검색!" />
+                    </span>
+
+                    <button id="search-button">검색</button>
+                </div>
+                <div id="search-info"></div>
+                <div class="cardview"></div>
+            </div>
+            <div class="loader">
+                <div class="loader-inner ball-pulse-sync">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <span> <p>불러오는 중</p></span>
+            </div>
+        </div>
+
+        <footer></footer>
+    </body>
+</html>
