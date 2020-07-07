@@ -1,8 +1,7 @@
+
 /*광고 들어갈 부분 bxslider*/
 .slider {
-    height: 400px;
     margin-top: 10px;
-    border: 1px #e6e6e6 solid;
     border-radius: 5px;
     background-color: #ddd; /*구획 보이게 하려고 추가한 것임 삭제예정*/
 }
@@ -45,6 +44,12 @@
 .advert-img:nth-child(4) {
     background-image: url('../../src/MainHome/mango.png');
 }
+
+.content {
+    width: 760px;
+    margin: 0 auto;
+}
+
 /* 태블릿 pc 미디어쿼리 */
 @media (max-width: 767px) {
     /*bx slider 적용 부분*/
