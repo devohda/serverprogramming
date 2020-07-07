@@ -17,10 +17,11 @@
 }
 .card {
     display: flex;
-    margin: 40px 0;
+    margin: 20px 0;
     box-shadow: 3px 3px 13px 0 rgba(0, 0, 0, 0.06);
     transition: 0.25s;
     width: 99%; /*반응형 바꿔줄것*/
+    cursor: pointer;
 }
 
 .card:hover {
@@ -45,7 +46,15 @@
     background-color: #fff;
 }
 .body-title {
-    margin-top: 20px;
+    display: inline-block;
+    font-size: 1.5rem;
+    margin-top: 10px;
+    font-weight: bold;
+}
+.body-category {
+    margin-left: 5px;
+    color: #bfbfbf;
+    font-size: 0.9rem;
 }
 .body-content {
     margin-bottom: 20px;
@@ -58,7 +67,6 @@
     /* 여러 줄 자르기 추가 스타일 */
     white-space: normal;
     line-height: 1.8;
-    height: 1.8em;
     text-align: left;
     word-wrap: break-word;
     display: -webkit-box;
@@ -86,7 +94,6 @@
 
 .body-review {
     font-size: 16px;
-    margin-bottom: 20px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -98,6 +105,7 @@
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
+    color: #bfbfbf;
 }
 .body-address {
     font-size: 16px;
