@@ -13,13 +13,8 @@ $(document).ready(function () {
         dataType: 'json',
     }).done((response) => {
         console.log('식당');
+
         for (var i = 0; i < 4; i = i + 1) {
-            /*
-            function func() {
-                window.open(response.data[i].link);
-            }
-            restaurant.children[1].children[i].addEventListener('click', func); //window.open(response.data[i].link);
-            */
             restaurant.children[1].children[i].children[0].style.backgroundImage = 'url(' + response.data[i].img + ')';
             restaurant.children[1].children[i].children[1].children[0].children[0].append(response.data[i].title);
             for (var j = 0; j < response.data[i].category.length; j++) {
@@ -35,6 +30,7 @@ $(document).ready(function () {
                 restaurant.children[1].children[i].children[1].children[3].append(response.data[i].address);
             } else if (response.data[i].tags.length) {
                 console.log('태그');
+                restaurant.children[1].children[i].children[1].children[3].style.display = 'none';
                 for (var j = 0; j < response.data[i].tags.length; j++) {
                     restaurant.children[1].children[i].children[1].children[4].innerHTML +=
                         '<div class="body-content-list-tags">' + response.data[i].tags[j] + '</div>';
@@ -65,6 +61,7 @@ $(document).ready(function () {
                 pub.children[1].children[i].children[1].children[3].append(response.data[i].address);
             } else if (response.data[i].tags.length) {
                 console.log('태그');
+                pub.children[1].children[i].children[1].children[3].style.display = 'none';
                 for (var j = 0; j < response.data[i].tags.length; j++) {
                     pub.children[1].children[i].children[1].children[4].innerHTML +=
                         '<div class="body-content-list-tags">' + response.data[i].tags[j] + '</div>';
@@ -95,6 +92,7 @@ $(document).ready(function () {
                 cafe.children[1].children[i].children[1].children[3].append(response.data[i].address);
             } else if (response.data[i].tags.length) {
                 console.log('태그');
+                cafe.children[1].children[i].children[1].children[3].style.display = 'none';
                 for (var j = 0; j < response.data[i].tags.length; j++) {
                     cafe.children[1].children[i].children[1].children[4].innerHTML +=
                         '<div class="body-content-list-tags">' + response.data[i].tags[j] + '</div>';
@@ -126,6 +124,7 @@ $(document).ready(function () {
                 dessert.children[1].children[i].children[1].children[3].append(response.data[i].address);
             } else if (response.data[i].tags.length) {
                 console.log('태그');
+                dessert.children[1].children[i].children[1].children[3].style.display = 'none';
                 for (var j = 0; j < response.data[i].tags.length; j++) {
                     dessert.children[1].children[i].children[1].children[4].innerHTML +=
                         '<div class="body-content-list-tags">' + response.data[i].tags[j] + '</div>';
@@ -139,7 +138,7 @@ $(document).ready(function () {
         type: 'get',
         dataType: 'json',
     }).done((response) => {
-        console.log('놀기');
+        console.log(response);
         for (var i = 0; i < 4; i = i + 1) {
             playing.children[1].children[i].children[0].style.backgroundImage = 'url(' + response.data[i].img + ')';
             playing.children[1].children[i].children[1].children[0].children[0].append(response.data[i].title);

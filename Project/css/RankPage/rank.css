@@ -1,46 +1,5 @@
-@media (max-width: 767px) {
-    .body-tag-box {
-        display: none;
-    }
-    .body-title {
-        margin-top: 10px;
-        font-weight: 700;
-
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-
-        /* 여러 줄 자르기 추가 스타일 */
-        white-space: normal;
-        line-height: 1.8;
-        height: 1.8em;
-        text-align: left;
-        word-wrap: break-word;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-    }
-    .body-category {
-        display: none;
-    }
-    #container {
-        padding-bottom: 50px;
-    }
-    .body-content-tour {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-
-        /* 여러 줄 자르기 추가 스타일 */
-        white-space: normal;
-        line-height: 1.8;
-        height: 1.8em;
-        text-align: left;
-        word-wrap: break-word;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-    }
+html {
+    font-size: 16px;
 }
 .cardview {
     display: flex;
@@ -197,4 +156,109 @@
     color: white;
     border-radius: 5px;
     display: inline-block;
+}
+@media (max-width: 767px) {
+    .body-tag-box {
+        display: none;
+    }
+    .body-title {
+        margin-top: 10px;
+        font-weight: 700;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        /* 여러 줄 자르기 추가 스타일 */
+        white-space: normal;
+        line-height: 1.8;
+        height: 1.8em;
+        text-align: left;
+        word-wrap: break-word;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+    .body-category {
+        display: none;
+    }
+    #container {
+        padding-bottom: 50px;
+    }
+    .body-content-tour {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        /* 여러 줄 자르기 추가 스타일 */
+        white-space: normal;
+        line-height: 1.8;
+        height: 1.8em;
+        text-align: left;
+        word-wrap: break-word;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+}
+@media (max-width: 320px) {
+    html {
+        font-size: 14px;
+    }
+    .card {
+        display: block;
+        margin: 40px 0;
+        box-shadow: 3px 3px 13px 0 rgba(0, 0, 0, 0.06);
+        transition: 0.25s;
+        width: 99%; /*반응형 바꿔줄것*/
+        cursor: pointer;
+    }
+    .card-header {
+        height: 150px;
+        padding: 0%;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        background-color: white;
+        color: #fff;
+    }
+    .body-content {
+        font-size: 16px;
+        white-space: normal;
+        line-height: 1.8;
+        height: 3.6em;
+        text-align: left;
+        word-wrap: break-word;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    .body-tag-box {
+        display: none;
+    }
+    .body-title {
+        margin-top: 10px;
+        font-weight: 700;
+    }
+    .body-category {
+        display: none;
+    }
+    #container {
+        padding-bottom: 50px;
+    }
+    .body-content-tour {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        /* 여러 줄 자르기 추가 스타일 */
+        white-space: normal;
+        line-height: 1.8;
+        height: 3.6em;
+        text-align: left;
+        word-wrap: break-word;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
 }
