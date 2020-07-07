@@ -1,3 +1,32 @@
+@media (max-width: 767px) {
+    .body-tag-box {
+        display: none;
+    }
+    .body-title {
+        margin-top: 10px;
+        font-weight: 700;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        /* 여러 줄 자르기 추가 스타일 */
+        white-space: normal;
+        line-height: 1.8;
+        height: 1.8em;
+        text-align: left;
+        word-wrap: break-word;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+    .body-category {
+        display: none;
+    }
+    #container {
+        padding-bottom: 50px;
+    }
+}
 .cardview {
     display: flex;
     justify-content: flex-start;
@@ -21,6 +50,7 @@
     box-shadow: 3px 3px 13px 0 rgba(0, 0, 0, 0.06);
     transition: 0.25s;
     width: 99%; /*반응형 바꿔줄것*/
+    cursor: pointer;
 }
 
 .card:hover {
@@ -45,7 +75,15 @@
     background-color: #fff;
 }
 .body-title {
-    margin-top: 20px;
+    display: inline-block;
+    font-size: 1.5rem;
+    margin-top: 10px;
+    font-weight: bold;
+}
+.body-category {
+    margin-left: 5px;
+    color: #bfbfbf;
+    font-size: 0.9rem;
 }
 .body-content {
     margin-bottom: 20px;
@@ -98,6 +136,7 @@
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
+    color: #bfbfbf;
 }
 .body-address {
     font-size: 16px;
@@ -136,8 +175,9 @@
 }
 .body-content-list-tags {
     padding: 0% 2%;
-    margin-right: 2%;
+    margin: 1% 1% 0 0;
     background-color: #0a6ebd;
     color: white;
     border-radius: 5px;
+    display: inline-block;
 }
