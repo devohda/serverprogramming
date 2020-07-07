@@ -303,6 +303,10 @@
     .result-category {
         margin-bottom: 1rem;
     }
+
+    .tag {
+        width: 2rem;
+    }
 }
 @media (max-width: 420px) {
     html {
