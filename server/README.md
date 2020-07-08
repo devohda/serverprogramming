@@ -27,3 +27,7 @@ VS Code Version 1.46.1
 npm install
 
 npm start
+
+## API 명세
+
+[API 명세 바로가기](https://www.notion.so/2020-3-15458735e0a84405888e0bc3730d748f).
