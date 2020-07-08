@@ -1,7 +1,7 @@
 # 2020-여름학기 서버프로그래밍설계 3조
 3조 BACK END
 
-# #OS, Text Editer
+## OS, Text Editer
 Windows 10, VS Code
 
 ## 개발 플랫폼
