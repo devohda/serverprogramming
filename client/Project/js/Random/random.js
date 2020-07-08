@@ -67,7 +67,10 @@ $(document).ready(function () {
         return course_result;
     }
 
-    // 지역 입력 받기
+    // 지역 검색어 받기
+    $('input').on('change', function () {
+        loca = $(this).val();
+    });
     $('#search-button').click(function () {
         loca = $('input').val();
         console.log(loca + '1');
@@ -82,9 +85,8 @@ $(document).ready(function () {
         let dom1 = '<div class="loader"></div>';
         $(c).append(dom1);
         //<![CDATA[
-        console.log(loca + '2');
         $.ajax({
-            url: `${url}${loca} 음식점 ${foodText[getRandomInt(0, 4)]}`,
+            url: `${url}${loca} ${foodText[getRandomInt(0, 4)]}`,
             //데이터전송및요청할URL 주소 -> 변수 url의 값으로 교체 예정
             type: 'GET',
             dataType: 'JSON',
