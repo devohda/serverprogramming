@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+        <!--메인홈페이지 개별 css-->
+        <link rel="stylesheet" type="text/css" href="../../css/RandomPage/Random.css" />
+        <!--제이쿼리-->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="../../js/Random/random.js"></script>
+        <title>Ya GOLLA</title>
+    </head>
+    <body>
+        <header>
+            <div id="insideheader">
+                <!--로고 div-->
+                <img src="../../src/MainHome/logo2.PNG" alt="logo" />
+                <!--네비게이션 들어가는 div-->
+                <div id="main-nav">
+                    <div>
+                        <a href="../MainHome/MainHome.html"><img src="../../src/home.png" /></a>
+                    </div>
+                    <div>
+                        <a href="../RankPage/RankPage.html"><img src="../../src/rank.png" /></a>
+                    </div>
+                    <div>
+                        <a href="Random.html"><img src="../../src/random1.png" /></a>
+                    </div>
+                    <div>
+                        <a href="../Search/Search.html"><img src="../../src/search.png" /></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--중앙 정렬 및 컨텐츠 들어가는 div-->
+        <div id="container">
+            <!--bxslider 사용할 div-->
+            <div class="search-area">
+                <div class="search-position">
+                    <div>지역을 입력하세요</div>
+                    <input type="text" placeholder="ex)홍대" />
+                    <button id="search-button">입력</button>
+                </div>
+            </div>
+            <div class="category-area">
+                <div class="category-position">
+                    <div class="food">#food</div>
+                    <div class="cafe">#cafe</div>
+                    <div class="drink">#bar</div>
+                    <div class="play">#play</div>
+                </div>
+            </div>
+
+            <div class="course-area">
+                <button id="all-re-load">전체 다시 뽑기</button>
+            </div>
+        </div>
+    </body>
+    <footer>
+        <div class="content">
+            <div>
+                <div><strong>Creators</strong>17010681 고석준 17011558 신동민 17011589 박별 19011488 오다혜</div>
+                <div><strong>ⓒ 3조 Corp.</strong></div>
+            </div>
+        </div>
+        <div class="tab_bar">
+            <div>
+                <a href="../../html/MainHome/MainHome.html">
+                    <img src="../../src/MainHome/main.png" />
+                    <div>Main</div>
+                </a>
+            </div>
+            <div>
+                <a href="../../html/RandomPage/Random.html">
+                    <img src="../../src/MainHome/rank.png" />
+                    <div>Random</div>
+                </a>
+            </div>
+            <div>
+                <a href="../../html/RankPage/RankPage.html">
+                    <img src="../../src/MainHome/random.png" />
+                    <div>Rank</div>
+                </a>
+            </div>
+            <div>
+                <a href="../../html/Search/Search.html">
+                    <img src="../../src/MainHome/search.png" />
+                    <div>Search</div>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        //카드 하나 지우기
+        document.querySelector('delete');
+    </script>
+</html>
