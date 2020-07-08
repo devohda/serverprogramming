@@ -260,7 +260,7 @@ $(document).on('click', '.re-load', function () {
         newUrl = newUrl + loca + ' 주점';
     }
     if ($(c).hasClass('playbox') === true) {
-        newUrl = newUrl + loca + ' ' + randomText[getRandomInt(0, 8)];
+        newUrl = newUrl + loca + ' ' + randomText[getRandomInt(0, 7)];
     }
     $.ajax({
         url: `${newUrl}`,
