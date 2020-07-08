@@ -116,224 +116,84 @@ $(document).ready(function () {
         loca = $('input').val();
     });
 
-    //각 버튼 눌렀을 때
+    //각 food,cafe,bar,play버튼 눌렀을 때
+    $('.category-position')
+        .children()
+        .click(function food() {
+            let c = makingCourse(); //makingCourse함수 실행으로 정보 넣을 div생성
+            COURSE.appendChild(c); //html에 추가
+            let newUrl;
+            //어떤 버튼이 눌렸는지 체크하여 카드에 class 추가하고 url 지정
+            if ($(this).hasClass('food')) {
+                c.classList.add('foodbox');
+                newUrl = url + loca + ' 음식점' + ' ' + foodText[getRandomInt(0, 4)];
+            }
+            if ($(this).hasClass('cafe')) {
+                c.classList.add('cafebox');
+                newUrl = url + loca + ' 카페';
+            }
+            if ($(this).hasClass('drink')) {
+                c.classList.add('drinkbox');
+                newUrl = url + loca + ' 술집';
+            }
+            if ($(this).hasClass('play')) {
+                c.classList.add('playbox');
+                newUrl = url + loca + ' ' + randomText[getRandomInt(0, 7)];
+            }
 
-    $('.food').click(function food() {
-        let c = makingCourse(); //makingCourse함수 실행으로 정보 넣을 div생성
-        COURSE.appendChild(c); //html에 추가
-        c.classList.add('foodbox');
-        //loader 생성
-        let dom1 = `<div class="loader"> 
-                <div class="loader-inner ball-pulse-sync">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <span> <p>불러오는 중</p></span>
-            </div>`;
-        $(c).find('.course').append(dom1); //loader 추가 - loading 완료되면 사라지게 됨.
-        //<![CDATA[
-        $.ajax({
-            url: `${url}${loca} ${foodText[getRandomInt(0, 4)]}`,
-            type: 'GET',
-            dataType: 'JSON',
+            //loader 생성
+            let dom1 = `<div class="loader"> 
+            <div class="loader-inner ball-pulse-sync">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <span> <p>불러오는 중</p></span>
+        </div>`;
+            $(c).find('.course').append(dom1); //loader 추가 - loading 완료되면 사라지게 됨.
+            //<![CDATA[
+            $.ajax({
+                url: `${newUrl}`,
+                type: 'GET',
+                dataType: 'JSON',
 
-            error: function () {
-                alert('다시 뽑기를 눌러 주세요');
-                $(c).find('.loader').remove(); // loader 제거
-                $(c).css('height', '10rem');
-            },
-            success: function (result) {
-                $(c).find('.loader').remove(); // loader 제거
+                error: function () {
+                    alert('다시 뽑기를 눌러 주세요');
+                    $(c).find('.loader').remove(); // loader 제거
+                    $(c).css('height', '10rem');
+                },
+                success: function (result) {
+                    $(c).find('.loader').remove(); // loader 제거
 
-                //내용 채우기
-                $(c).children('.result-img').attr('src', result.data[0].img);
-                $(c).find('.result-title').append(result.data[0].title);
-                $(c).find('.result-href').attr('href', result.data[0].link);
-                $(c).find('.result-href').attr('target', '_blank');
-                $(c).find('.result-address').append(result.data[0].address);
-                var s = result.data[0].category;
-                $(s).each(function (index, item) {
-                    $(c)
-                        .find('.result-category')
-                        .append(item + ' ');
-                });
-                var s2 = result.data[0].tags;
-                $(s2).each(function (index, item) {
-                    const tag = document.createElement('div');
-                    tag.classList.add('tag');
-                    tag.innerText = '#' + item;
-                    $(c).find('.result-tags').append(tag);
-                });
-            },
+                    //내용 채우기
+                    $(c).children('.result-img').attr('src', result.data[0].img);
+                    $(c).find('.result-title').append(result.data[0].title);
+                    $(c).find('.result-href').attr('href', result.data[0].link);
+                    $(c).find('.result-href').attr('target', '_blank');
+                    $(c).find('.result-address').append(result.data[0].address);
+                    var s = result.data[0].category;
+                    $(s).each(function (index, item) {
+                        $(c)
+                            .find('.result-category')
+                            .append(item + ' ');
+                    });
+                    var s2 = result.data[0].tags;
+                    $(s2).each(function (index, item) {
+                        const tag = document.createElement('div');
+                        tag.classList.add('tag');
+                        tag.innerText = '#' + item;
+                        $(c).find('.result-tags').append(tag);
+                    });
+                },
+            });
+            //]]>
         });
-        //]]>
-    });
-
-    $('.cafe').click(function () {
-        let c = makingCourse();
-        COURSE.appendChild(c);
-        c.classList.add('cafebox');
-        //loader 생성
-        let dom1 = `<div class="loader"> 
-                <div class="loader-inner ball-pulse-sync">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <span> <p>불러오는 중</p></span>
-            </div>`;
-        $(c).find('.course').append(dom1); //loader 추가 - loading 완료되면 사라지게 됨.
-        //<![CDATA[
-        $.ajax({
-            url: `${url}${loca} 카페`,
-            type: 'GET',
-            dataType: 'JSON',
-
-            error: function () {
-                alert('다시 뽑기를 눌러 주세요');
-                $(c).find('.loader').remove(); // loader 제거
-                $(c).css('height', '10rem');
-            },
-            success: function (result) {
-                $(c).find('.loader').remove(); // loader 제거
-
-                //내용 채우기
-                $(c).children('.result-img').attr('src', result.data[0].img);
-                $(c).find('.result-title').append(result.data[0].title);
-                $(c).find('.result-href').attr('href', result.data[0].link);
-                $(c).find('.result-href').attr('target', '_blank');
-                $(c).find('.result-address').append(result.data[0].address);
-                var s = result.data[0].category;
-                $(s).each(function (index, item) {
-                    $(c)
-                        .find('.result-category')
-                        .append(item + ' ');
-                });
-                var s2 = result.data[0].tags;
-                $(s2).each(function (index, item) {
-                    const tag = document.createElement('div');
-                    tag.classList.add('tag');
-                    tag.innerText = '#' + item;
-                    $(c).find('.result-tags').append(tag);
-                });
-            },
-        });
-        //]]>
-    });
-    $('.drink').click(function () {
-        let c = makingCourse();
-        COURSE.appendChild(c);
-        c.classList.add('drinkbox');
-        //loader 생성
-        let dom1 = `<div class="loader"> 
-                <div class="loader-inner ball-pulse-sync">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <span> <p>불러오는 중</p></span>
-            </div>`;
-        $(c).find('.course').append(dom1); //loader 추가 - loading 완료되면 사라지게 됨.
-        //<![CDATA[
-        $.ajax({
-            url: `${url}${loca} 술집`,
-            type: 'GET',
-            dataType: 'JSON',
-
-            error: function () {
-                alert('다시 뽑기를 눌러 주세요');
-                $(c).find('.loader').remove(); // loader 제거
-                $(c).css('height', '10rem');
-            },
-            success: function (result) {
-                $(c).find('.loader').remove(); // loader 제거
-
-                //내용 채우기
-                $(c).children('.result-img').attr('src', result.data[0].img);
-                $(c).find('.result-title').append(result.data[0].title);
-                $(c).find('.result-href').attr('href', result.data[0].link);
-                $(c).find('.result-href').attr('target', '_blank');
-                $(c).find('.result-address').append(result.data[0].address);
-                var s = result.data[0].category;
-                $(s).each(function (index, item) {
-                    $(c)
-                        .find('.result-category')
-                        .append(item + ' ');
-                });
-                var s2 = result.data[0].tags;
-                $(s2).each(function (index, item) {
-                    const tag = document.createElement('div');
-                    tag.classList.add('tag');
-                    tag.innerText = '#' + item;
-                    $(c).find('.result-tags').append(tag);
-                });
-            },
-        });
-        //]]>
-    });
-    $('.play').click(function () {
-        let c = makingCourse();
-        COURSE.appendChild(c);
-        c.classList.add('playbox');
-        //loader 생성
-        let dom1 = `<div class="loader"> 
-                <div class="loader-inner ball-pulse-sync">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <span> <p>불러오는 중</p></span>
-            </div>`;
-        $(c).find('.course').append(dom1); //loader 추가 - loading 완료되면 사라지게 됨.
-        //<![CDATA[
-        $.ajax({
-            url: `${url}${loca} ${randomText[getRandomInt(0, 7)]}`,
-            type: 'GET',
-            dataType: 'JSON',
-
-            error: function () {
-                alert('다시 뽑기를 눌러 주세요');
-                $(c).find('.loader').remove(); // loader 제거
-                $(c).css('height', '10rem');
-            },
-            success: function (result) {
-                $(c).find('.loader').remove(); // loader 제거
-
-                //내용 채우기
-                $(c).children('.result-img').attr('src', result.data[0].img);
-                $(c).find('.result-title').append(result.data[0].title);
-                $(c).find('.result-href').attr('href', result.data[0].link);
-                $(c).find('.result-href').attr('target', '_blank');
-                $(c).find('.result-address').append(result.data[0].address);
-                var s = result.data[0].category;
-                $(s).each(function (index, item) {
-                    $(c)
-                        .find('.result-category')
-                        .append(item + ' ');
-                });
-                var s2 = result.data[0].tags;
-                $(s2).each(function (index, item) {
-                    const tag = document.createElement('div');
-                    tag.classList.add('tag');
-                    tag.innerText = '#' + item;
-                    $(c).find('.result-tags').append(tag);
-                });
-            },
-        });
-        //]]>
-    });
-});
-
-$(document).on('click', '.delete', function () {
-    let c = $(this).parent();
-    c.remove();
 });
 
 //다시 뽑기를 눌렀을 때
 $(document).on('click', '.re-load', function () {
     let c = $(this).parents('.course-result'); //다시뽑기 한 카드의 정보를 재로딩
-    let newUrl = url;
+    let newUrl;
     let dom1 = `<div class="loader"> 
                 <div class="loader-inner ball-pulse-sync">
                     <div></div>
@@ -346,17 +206,18 @@ $(document).on('click', '.re-load', function () {
 
     //카드의 종류에 따라 url 지정.
     if ($(c).hasClass('foodbox') === true) {
-        newUrl = newUrl + loca + ' ' + foodText[getRandomInt(0, 4)];
+        newUrl = url + loca + ' 음식점' + ' ' + foodText[getRandomInt(0, 4)];
     }
     if ($(c).hasClass('cafebox') === true) {
-        newUrl = newUrl + loca + ' 카페';
+        newUrl = url + loca + ' 카페';
     }
     if ($(c).hasClass('drinkbox') === true) {
-        newUrl = newUrl + loca + ' 주점';
+        newUrl = url + loca + ' 술집';
     }
     if ($(c).hasClass('playbox') === true) {
-        newUrl = newUrl + loca + ' ' + randomText[getRandomInt(0, 7)];
+        newUrl = url + loca + ' ' + randomText[getRandomInt(0, 7)];
     }
+
     //<![CDATA[
     $.ajax({
         url: `${newUrl}`,
@@ -465,4 +326,10 @@ $(document).on('click', '#all-re-load', function () {
         });
         //]]>
     });
+});
+
+//카드에 x버튼 누르면 카드 삭제됨.
+$(document).on('click', '.delete', function () {
+    let c = $(this).parent();
+    c.remove();
 });
