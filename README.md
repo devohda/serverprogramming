@@ -1,2 +1,10 @@
-# serverprogramming
-ì„¸ì¢…ëŒ€.ê³„ì ˆí•™ê¸°.ì„œë²„í”„ë¡œê·¸ë˜ë°
+# SEJONG UNIV. 2020-¿©¸§ÇĞ±â ¼­¹öÇÁ·Î±×·¡¹Ö 3Á¶
+¼¼Á¾´ëÇĞ±³ 2020³âµµ ¿©¸§ÇĞ±â ¼­¹öÇÁ·Î±×·¡¹Ö ÆÀ ÇÁ·ÎÁ§Æ® 3Á¶
+
+## Front end
+npm install
+npm start
+
+## Back end
+npm install
+npm start
