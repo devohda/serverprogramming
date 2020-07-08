@@ -13,7 +13,7 @@ $(document).ready(() => {
     let dom = '';
     let totalpage;
     let working = false;
-    const url = 'http://59.6.42.102:8080';
+    const url = 'http://localhost:8080';
 
     // select 초기화
     if (qs.type === 'list') {

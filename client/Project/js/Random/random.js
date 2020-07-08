@@ -1,5 +1,5 @@
 //url 만들기(api 가져오기)
-let url = 'http://59.6.42.102:8080/api/random/pick?keyword=';
+let url = 'http://localhost:8080/api/random/pick?keyword=';
 let loca = '';
 let foodText = ['한식', '중식', '일식', '분식', '양식'];
 let randomText = ['피씨방', '노래방', '당구장', '방탈출', '공원', '공방', '클럽', '보드게임'];

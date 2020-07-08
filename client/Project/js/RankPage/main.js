@@ -4,8 +4,8 @@ $(document).ready(function () {
     var cafe = document.getElementById('cafe');
     var dessert = document.getElementById('dessert');
     var playing = document.getElementById('playing');
-    var naverurl = `http://59.6.42.102:8080/api/rank/list?keyword=`;
-    var korearankurl = `http://59.6.42.102:8080/api/rank/tour?city=&category=&order=`; //디폴트
+    var naverurl = `http://localhost:8080/api/rank/list?keyword=`;
+    var korearankurl = `http://localhost:8080/api/rank/tour?city=&category=&order=`; //디폴트
     $.ajax({
         url: `${naverurl}음식점`,
         //url: 'http://59.6.42.102:8080/api/rank/test',
