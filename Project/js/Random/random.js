@@ -1,6 +1,7 @@
 //url 만들기(api 가져오기)
 let url = 'http://59.6.42.102:8080/api/random/pick?keyword=';
 let loca = '';
+let foodText = ['한식', '중식', '일식', '분식', '양식'];
 let randomText = ['피씨방', '노래방', '당구장', '방탈출', '공원', '공방', '클럽', '보드게임'];
 i = 0;
 
@@ -83,7 +84,7 @@ $(document).ready(function () {
         //<![CDATA[
         console.log(loca + '2');
         $.ajax({
-            url: `${url}${loca}음식`,
+            url: `${url}${loca} 음식점 ${foodText[getRandomInt(0, 4)]}`,
             //데이터전송및요청할URL 주소 -> 변수 url의 값으로 교체 예정
             type: 'GET',
             dataType: 'JSON',
@@ -125,7 +126,7 @@ $(document).ready(function () {
         $(c).append(dom1);
         //<![CDATA[
         $.ajax({
-            url: `${url}${loca}카페`,
+            url: `${url}${loca} 카페`,
             //데이터전송및요청할URL 주소 -> 변수 url의 값으로 교체 예정
             type: 'GET',
             dataType: 'JSON',
@@ -165,7 +166,7 @@ $(document).ready(function () {
         $(c).append(dom1);
         //<![CDATA[
         $.ajax({
-            url: `${url}${loca}술집`,
+            url: `${url}${loca} 술집`,
             //데이터전송및요청할URL 주소 -> 변수 url의 값으로 교체 예정
             type: 'GET',
             dataType: 'JSON',
@@ -201,9 +202,11 @@ $(document).ready(function () {
         let c = makingCourse();
         COURSE.appendChild(c);
         c.classList.add('playbox');
+        let dom1 = '<div class="loader"></div>';
+        $(c).append(dom1);
         //<![CDATA[
         $.ajax({
-            url: `${url}${loca}${randomText[getRandomInt(0, 8)]}`,
+            url: `${url}${loca} ${randomText[getRandomInt(0, 7)]}`,
             //데이터전송및요청할URL 주소 -> 변수 url의 값으로 교체 예정
             type: 'GET',
             dataType: 'JSON',
@@ -248,16 +251,16 @@ $(document).on('click', '.re-load', function () {
     let dom1 = '<div class="loader"></div>';
     $(c).append(dom1);
     if ($(c).hasClass('foodbox') === true) {
-        newUrl = newUrl + loca + '맛집';
+        newUrl = newUrl + loca + ' 음식점' + ' ' + foodText[getRandomInt(0, 4)];
     }
     if ($(c).hasClass('cafebox') === true) {
-        newUrl = newUrl + loca + '카페';
+        newUrl = newUrl + loca + ' 카페';
     }
     if ($(c).hasClass('drinkbox') === true) {
-        newUrl = newUrl + loca + '주점';
+        newUrl = newUrl + loca + ' 주점';
     }
     if ($(c).hasClass('playbox') === true) {
-        newUrl = newUrl + loca + randomText[getRandomInt(0, 8)];
+        newUrl = newUrl + loca + ' ' + randomText[getRandomInt(0, 8)];
     }
     $.ajax({
         url: `${newUrl}`,
@@ -302,16 +305,16 @@ $(document).on('click', '#all-re-load', function () {
         let c = item;
         let newUrl = url;
         if ($(c).hasClass('foodbox') === true) {
-            newUrl = newUrl + loca + '맛집';
+            newUrl = newUrl + loca + ' 음식점' + ' ' + foodText[getRandomInt(0, 4)];
         }
         if ($(c).hasClass('cafebox') === true) {
-            newUrl = newUrl + loca + '카페';
+            newUrl = newUrl + loca + ' 카페';
         }
         if ($(c).hasClass('drinkbox') === true) {
-            newUrl = newUrl + loca + '술집';
+            newUrl = newUrl + loca + ' 술집';
         }
         if ($(c).hasClass('playbox') === true) {
-            newUrl = newUrl + loca + randomText[getRandomInt(0, 8)];
+            newUrl = newUrl + loca + ' ' + randomText[getRandomInt(0, 7)];
         }
         $.ajax({
             url: `${newUrl}`,
