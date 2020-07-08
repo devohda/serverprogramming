@@ -140,6 +140,7 @@ $(document).ready(function () {
                 $(c).children('.result-img').attr('src', result.data[0].img);
                 $(c).find('.result-title').append(result.data[0].title);
                 $(c).find('.result-href').attr('href', result.data[0].link);
+                $(c).find('.result-href').attr('target', '_blank');
                 $(c).find('.result-address').append(result.data[0].address);
                 var s = result.data[0].category;
                 $(s).each(function (index, item) {
@@ -180,6 +181,7 @@ $(document).ready(function () {
                 $(c).children('.result-img').attr('src', result.data[0].img);
                 $(c).find('.result-title').append(result.data[0].title);
                 $(c).find('.result-href').attr('href', result.data[0].link);
+                $(c).find('.result-href').attr('target', '_blank');
                 $(c).find('.result-address').append(result.data[0].address);
                 var s = result.data[0].category;
                 $(s).each(function (index, item) {
@@ -220,6 +222,7 @@ $(document).ready(function () {
                 $(c).children('.result-img').attr('src', result.data[0].img);
                 $(c).find('.result-title').append(result.data[0].title);
                 $(c).find('.result-href').attr('href', result.data[0].link);
+                $(c).find('.result-href').attr('target', '_blank');
                 $(c).find('.result-address').append(result.data[0].address);
                 var s = result.data[0].category;
                 $(s).each(function (index, item) {
@@ -276,6 +279,7 @@ $(document).on('click', '.re-load', function () {
             $(c).children('.result-img').attr('src', result.data[0].img);
             $(c).find('.result-title').text(result.data[0].title);
             $(c).find('.result-href').attr('href', result.data[0].link);
+            $(c).find('.result-href').attr('target', '_blank');
             $(c).find('.result-address').text(result.data[0].address);
             var s = result.data[0].category;
             $(c).find('.result-category').text('');
@@ -332,6 +336,7 @@ $(document).on('click', '#all-re-load', function () {
                 $(c).children('.result-img').attr('src', result.data[0].img);
                 $(c).find('.result-title').text(result.data[0].title);
                 $(c).find('.result-href').attr('href', result.data[0].link);
+                $(c).find('.result-href').attr('target', '_blank');
                 $(c).find('.result-address').text(result.data[0].address);
                 var s = result.data[0].category;
                 $(c).find('.result-category').text('');
