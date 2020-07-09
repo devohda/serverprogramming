@@ -9,7 +9,10 @@ $(document).ready(() => {
     // 초기화
     const qs = getUrlParams();
     let page = 1;
-    let type = qs.type;
+    let type = '';
+    if (qs.type) {
+        type = qs.type;
+    }
     let dom = '';
     let totalpage;
     let working = false;
@@ -261,8 +264,9 @@ $(document).ready(() => {
     });
 
     // 검색
-    $('#search-button').click(() => {
-        if (type === 'list') {
+
+    const handleSearch = () => {
+        if (type === 'list' || type === '') {
             const keyword = $('#search-input').val();
             if (keyword === '') {
                 alert('검색어를 입력해주세요.');
@@ -278,11 +282,13 @@ $(document).ready(() => {
                 '#search-city option:checked',
             ).text()}-${$('#search-category option:checked').text()}-${$('#search-order option:checked').text()}`;
         }
+    };
+    $('#search-button').click(() => {
+        handleSearch();
     });
-    //엔터키 검색
-    $('#search-input').keypress((e) => {
+    $(document).on('keypress', '#search-input', (e) => {
         if (e.which === 13) {
-            getPost();
+            handleSearch();
         }
     });
 });
