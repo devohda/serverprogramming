@@ -117,16 +117,16 @@ $(document).ready(function () {
     });
 
     //각 food,cafe,bar,play버튼 눌렀을 때
-    $('.category-position')
+    $('.category-area')
         .children()
-        .click(function food() {
+        .click(function () {
             let c = makingCourse(); //makingCourse함수 실행으로 정보 넣을 div생성
             COURSE.appendChild(c); //html에 추가
             let newUrl;
             //어떤 버튼이 눌렸는지 체크하여 카드에 class 추가하고 url 지정
             if ($(this).hasClass('food')) {
                 c.classList.add('foodbox');
-                newUrl = url + loca + ' 음식점' + ' ' + foodText[getRandomInt(0, 4)];
+                newUrl = url + loca + ' ' + foodText[getRandomInt(0, 4)];
             }
             if ($(this).hasClass('cafe')) {
                 c.classList.add('cafebox');
@@ -164,20 +164,20 @@ $(document).ready(function () {
                 },
                 success: function (result) {
                     $(c).find('.loader').remove(); // loader 제거
-
+                    console.log(result);
                     //내용 채우기
-                    $(c).children('.result-img').attr('src', result.data[0].img);
-                    $(c).find('.result-title').append(result.data[0].title);
-                    $(c).find('.result-href').attr('href', result.data[0].link);
-                    $(c).find('.result-href').attr('target', '_blank');
-                    $(c).find('.result-address').append(result.data[0].address);
-                    var s = result.data[0].category;
+                    $(c).children('.result-img').attr('src', result.data[0].img); /*장소 이미지*/
+                    $(c).find('.result-title').append(result.data[0].title); /*장소 이름*/
+                    $(c).find('.result-href').attr('href', result.data[0].link); /*장소 상세 보기 링크*/
+                    $(c).find('.result-href').attr('target', '_blank'); /*새창에서 열기*/
+                    $(c).find('.result-address').append(result.data[0].address); /*장소 주소*/
+                    var s = result.data[0].category; /*장소 카테고리*/
                     $(s).each(function (index, item) {
                         $(c)
                             .find('.result-category')
                             .append(item + ' ');
                     });
-                    var s2 = result.data[0].tags;
+                    var s2 = result.data[0].tags; /*장소 태그*/
                     $(s2).each(function (index, item) {
                         const tag = document.createElement('div');
                         tag.classList.add('tag');
@@ -206,7 +206,7 @@ $(document).on('click', '.re-load', function () {
 
     //카드의 종류에 따라 url 지정.
     if ($(c).hasClass('foodbox') === true) {
-        newUrl = url + loca + ' 음식점' + ' ' + foodText[getRandomInt(0, 4)];
+        newUrl = url + loca + ' ' + foodText[getRandomInt(0, 4)];
     }
     if ($(c).hasClass('cafebox') === true) {
         newUrl = url + loca + ' 카페';
@@ -226,25 +226,25 @@ $(document).on('click', '.re-load', function () {
         error: function () {
             alert('다시 뽑기를 눌러 주세요');
             $(c).find('.loader').remove(); // loader 제거
-            $(c).css('height', '10rem');
+            $(c).css('height', 'auto');
         },
         success: function (result) {
             $(c).find('.loader').remove(); // loader 제거
 
-            $(c).children('.result-img').attr('src', result.data[0].img);
-            $(c).find('.result-title').text(result.data[0].title);
-            $(c).find('.result-href').attr('href', result.data[0].link);
-            $(c).find('.result-href').attr('target', '_blank');
-            $(c).find('.result-address').text(result.data[0].address);
-            var s = result.data[0].category;
-            $(c).find('.result-category').text('');
+            $(c).children('.result-img').attr('src', result.data[0].img); /*장소 이미지*/
+            $(c).find('.result-title').text(result.data[0].title); /*장소 이름*/
+            $(c).find('.result-href').attr('href', result.data[0].link); /*장소 상세보기 링크*/
+            $(c).find('.result-href').attr('target', '_blank'); /*새창에서 열기*/
+            $(c).find('.result-address').text(result.data[0].address); /*장소 주소*/
+            var s = result.data[0].category; /*장소 카테고리*/
+            $(c).find('.result-category').text(''); /*카테고리 써져 있던 것 초기화*/
             $(s).each(function (index, item) {
                 $(c)
                     .find('.result-category')
                     .append(item + ' ');
             });
-            var s2 = result.data[0].tags;
-            $(c).find('.result-tags').text('');
+            var s2 = result.data[0].tags; /*장소 태그*/
+            $(c).find('.result-tags').text(''); /*태그 써져 있던 것 초기화*/
             $(s2).each(function (index, item) {
                 const tag = document.createElement('div');
                 tag.classList.add('tag');
@@ -273,7 +273,7 @@ $(document).on('click', '#all-re-load', function () {
         let newUrl;
         //각각의 카드의 종류에 따라 url 지정
         if ($(c).hasClass('foodbox') === true) {
-            newUrl = url + loca + ' 음식점' + ' ' + foodText[getRandomInt(0, 4)];
+            newUrl = url + loca + ' ' + foodText[getRandomInt(0, 4)];
         }
         if ($(c).hasClass('cafebox') === true) {
             newUrl = url + loca + ' 카페';
@@ -295,26 +295,26 @@ $(document).on('click', '#all-re-load', function () {
             error: function () {
                 alert('다시 뽑기를 눌러 주세요');
                 $(c).find('.loader').remove(); // loader 제거
-                $(c).css('height', '10rem');
+                $(c).css('height', 'auto');
             },
             success: function (result) {
                 $(c).find('.loader').remove(); // loader 제거
 
                 //정보 새로 담기
-                $(c).children('.result-img').attr('src', result.data[0].img);
-                $(c).find('.result-title').text(result.data[0].title);
-                $(c).find('.result-href').attr('href', result.data[0].link);
-                $(c).find('.result-href').attr('target', '_blank');
-                $(c).find('.result-address').text(result.data[0].address);
-                var s = result.data[0].category;
-                $(c).find('.result-category').text('');
+                $(c).children('.result-img').attr('src', result.data[0].img); /*장소 이미지*/
+                $(c).find('.result-title').text(result.data[0].title); /*장소 이름*/
+                $(c).find('.result-href').attr('href', result.data[0].link); /*장소 상세보기 링크*/
+                $(c).find('.result-href').attr('target', '_blank'); /*새창에서 열기*/
+                $(c).find('.result-address').text(result.data[0].address); /*장소 주소*/
+                var s = result.data[0].category; /*장소 카테고리*/
+                $(c).find('.result-category').text(''); /*카테고리 써져 있던 것 초기화*/
                 $(s).each(function (index, item) {
                     $(c)
                         .find('.result-category')
                         .append(item + ' ');
                 });
-                var s2 = result.data[0].tags;
-                $(c).find('.result-tags').text('');
+                var s2 = result.data[0].tags; /*장소 태그*/
+                $(c).find('.result-tags').text(''); /*태그 써져 있던 것 초기화*/
                 $(s2).each(function (index, item) {
                     $(c);
                     const tag = document.createElement('div');
