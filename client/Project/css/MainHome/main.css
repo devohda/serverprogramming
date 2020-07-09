@@ -2,7 +2,7 @@
 .slider {
     margin-top: 10px;
     border-radius: 5px;
-    background-color: #ddd; /*구획 보이게 하려고 추가한 것임 삭제예정*/
+    background-color: #ddd;
 }
 .add_img {
     width: 760px;
@@ -12,19 +12,19 @@
 /*하단 광고 부분*/
 .advert {
     overflow: hidden;
-    display: flex;
-    justify-content: space-between;
+    display: flex; /* -----------------------------------------*/
+    justify-content: space-between; /* -----------------------------------------*/
     padding: 0 20px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* -----------------------------------------*/
     margin: 20px 0;
 }
 
 .advert-img {
     background-size: cover;
 
-    width: 45%; /*가져오는 광고의 스타일에 따라 크키가 달라져야 할 듯. 미디어 쿼리를 위해 % 적용*/
+    width: 45%; /* 미디어 쿼리를 위해 % 적용-----------------------------------------*/
     padding-top: 25%; /*페이지 줄이면 비율 따라서 동일한 이미지가 축소되도록 만듦*/
-    background-position: center center;
+    background-position: center center; /* -----------------------------------------*/
 
     border-radius: 5px;
     float: left;
@@ -32,15 +32,19 @@
 }
 
 .advert-img:nth-child(1) {
+    /*첫번째 광고*/
     background-image: url('../../src/MainHome/ashley.jpg');
 }
 .advert-img:nth-child(2) {
+    /*두번째 광고*/
     background-image: url('../../src/MainHome/yanolja.jpg');
 }
 .advert-img:nth-child(3) {
+    /*세번째 광고*/
     background-image: url('../../src/MainHome/waterbomb.PNG');
 }
 .advert-img:nth-child(4) {
+    /*네번째 광고*/
     background-image: url('../../src/MainHome/mango.png');
 }
 
@@ -62,8 +66,7 @@
     }
 
     .advert-img {
-        /*width: 40%;
-        height: 210px;*/
+        /*width: 40%; height: 210px;*/ /* -----------------------------------------*/
         background-image: url('../../src/MainHome/ashley.jpg');
         background-size: cover;
         width: 80%;
@@ -73,7 +76,7 @@
         margin: 10px auto;
     }
 }
-
+/* 핸드폰 미디어쿼리 */
 @media (max-width: 320px) {
     /*bx slider 적용 부분*/
     .slider {

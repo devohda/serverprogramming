@@ -3,7 +3,9 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!--제이쿼리 cdn-->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" />
         <!--광고에 사용된 bxslider 관련 css-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css" />
@@ -12,23 +14,22 @@
         <!--광고에 사용된 bxslider 관련 js-->
         <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
         <!--광고에 사용된 bxslider 관련 js-->
-        <!--광고 관련 js-->
 
-        <!--메인홈페이지 개별 css-->
         <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+        <!--메뉴바 탭바 공통 css-->
         <link rel="stylesheet" type="text/css" href="../../css/MainHome/main.css" />
-        <!--삭제하고  head에 style로 넣는 게 좋을 거 같음.-->
+        <!--메인홈페이지 개별 css-->
         <script>
-            //bx slider 적용하는 script
+            //bxslider 적용하는 script
             $(document).ready(function () {
                 $('.add_slide').bxSlider({
                     //bXSlider 사용
-                    auto: true,
-                    speed: 500,
-                    pause: 4000,
-                    mode: 'fade',
-                    autoControls: false,
-                    pager: false,
+                    auto: true, // 자동 실행
+                    speed: 500, // 슬라이드 전환 속도
+                    pause: 4000, // 슬라이드가 보여지는 시간
+                    mode: 'fade', //슬라이드 전환 설정
+                    autoControls: false, //시작 중지 버튼
+                    pager: false, //페이지 표시 기능
                 });
             });
         </script>
@@ -37,19 +38,24 @@
     <body>
         <header>
             <div id="insideheader">
-                <!--로고 div-->
+                <!--로고 img-->
                 <img src="../../src/MainHome/logo2.PNG" alt="logo" />
+
                 <!--네비게이션 들어가는 div-->
                 <div id="main-nav">
+                    <!--네비게이션 홈 아이콘 및 바로가기-->
                     <div>
                         <a href="MainHome.html"><img src="../../src/home.png" /></a>
                     </div>
+                    <!--네비게이션 랭크 아이콘 및 바로가기-->
                     <div>
                         <a href="../RankPage/RankPage.html"><img src="../../src/rank.png" /></a>
                     </div>
+                    <!--네비게이션 랜덤 아이콘 및 바로가기-->
                     <div>
                         <a href="../RandomPage/Random.html"><img src="../../src/random1.png" /></a>
                     </div>
+                    <!--네비게이션 검색 아이콘 및 바로가기-->
                     <div>
                         <a href="../Search/Search.html"><img src="../../src/search.png" /></a>
                     </div>
@@ -62,53 +68,63 @@
             <div class="slider">
                 <ul class="add_slide">
                     <li><img src="../../src/MainHome/search_bx.png" alt="" class="add_img" /></li>
+                    <!--bxslider 노출 페이지 중 1-->
                     <li><img src="../../src/MainHome/rank_bx.png" alt="" class="add_img" /></li>
+                    <!--bxslider 노출 페이지 중 2-->
                     <li><img src="../../src/MainHome/random_bx.png" alt="" class="add_img" /></li>
-                    <!--광고 노출 페이지 중 1-->
-                    <!--광고 노출 페이지 중 2-->
+                    <!--bxslider 노출 페이지 중 3-->
                 </ul>
             </div>
             <!--광고가 들어갈 div-->
             <div class="advert">
-                <!--동적으로 만들 땐 advert-img 추가하고 background-img url 바꿔주기-->
                 <div class="advert-img"></div>
+                <!--광고1-->
                 <div class="advert-img"></div>
+                <!--광고2-->
                 <div class="advert-img"></div>
+                <!--광고3-->
                 <div class="advert-img"></div>
+                <!--광고4-->
             </div>
         </div>
         <footer>
             <div class="content">
                 <div>
+                    <!--탭 메뉴가 아닐 때 푸터 -->
                     <div><strong>Creators</strong>17010681 고석준 17011558 신동민 17011589 박별 19011488 오다혜</div>
                     <div><strong>ⓒ 3조 Corp.</strong></div>
                 </div>
             </div>
             <div class="tab_bar">
+                <!--탭 메뉴일 때 -->
                 <div>
                     <a href="../../html/MainHome/MainHome.html">
                         <img src="../../src/MainHome/main.png" />
                         <div>Main</div>
                     </a>
                 </div>
-                <div>
-                    <a href="../../html/RandomPage/Random.html">
-                        <img src="../../src/MainHome/rank.png" />
-                        <div>Random</div>
-                    </a>
-                </div>
+                <!--홈 아이콘과 바로가기-->
                 <div>
                     <a href="../../html/RankPage/RankPage.html">
-                        <img src="../../src/MainHome/random.png" />
+                        <img src="../../src/MainHome/rank.png" />
                         <div>Rank</div>
                     </a>
                 </div>
+                <!--랭크 아이콘과 바로가기-->
+                <div>
+                    <a href="../../html/RandomPage/Random.html">
+                        <img src="../../src/MainHome/random.png" />
+                        <div>Random</div>
+                    </a>
+                </div>
+                <!--랜덤 아이콘과 바로가기-->
                 <div>
                     <a href="../../html/Search/Search.html">
                         <img src="../../src/MainHome/search.png" />
                         <div>Search</div>
                     </a>
                 </div>
+                <!--검색 아이콘과 바로가기-->
             </div>
         </footer>
     </body>

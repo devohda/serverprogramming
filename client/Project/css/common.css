@@ -16,25 +16,28 @@ header {
     line-height: 50px;
     box-shadow: 1px 1px 10px #ddd;
 
-    position: sticky; /*header 고정*/
+    position: sticky; /*header 상단에 고정*/
     top: 0;
-    z-index: 10000;
+    z-index: 10000; /*header 항상 표시*/
 }
+
 #insideheader {
+    /* 로고 및 아이콘 들어가는 부분 위치 및 너비 조정*/
     width: 760px;
     margin: 0 auto;
 }
 
+/*메뉴 네비게이션 부분*/
 #main-nav {
-    /*메뉴 네비게이션 부분*/
+    /*아이콘 위치 조정*/
     float: right;
-    font-size: 1em;
     margin-right: 5px;
     line-height: 50px;
     padding-top: 5px;
 }
 
 #main-nav div {
+    /*로고 위치 조정*/
     float: left;
     margin: 0 20px;
 }
@@ -42,20 +45,21 @@ header {
     height: 25px;
 }
 header img {
+    /*아이콘 크기 조정*/
     height: 50px;
 }
 
-/*내용 들어가는 부분*/
+/*배경 색 설정*/
 body {
     background-color: #fafafa;
 }
-
+/*내용 들어가는 부분 중앙 정렬 및 너비 설정*/
 #container {
     width: 760px;
     margin: 80px auto 0;
 }
 
-/*footer 부분*/
+/*footer 부분 크기, 상단 선, 글자 크기 설정*/
 footer {
     margin-top: 20px;
     height: 70px;
@@ -73,20 +77,22 @@ footer {
     display: none;
 }
 .tab_bar img {
+    /*탭 메뉴 위치조정*/
     margin: 0 auto;
 }
-
+/* 푸터 하단 저작권 담는 부분*/
 .content {
     width: 760px;
     margin: 0 auto;
 }
 
+/*탭 메뉴 링크 설정*/
 .tab_bar a {
     color: black;
     text-decoration: none;
 }
 
-/*media query 반응형 페이지 구현*/
+/*media query 반응형 페이지 구현 테블릿 부터 핸드폰까지*/
 @media (max-width: 767px) {
     * {
         clear: both;
@@ -107,6 +113,7 @@ footer {
         width: 80%;
         margin: 0 auto;
     }
+    /*bxslider*/
     .slider {
         height: 300px;
     }
@@ -120,24 +127,24 @@ footer {
         width: 100%;
         padding-top: 0;
     }
+    /*저작권 비 표시*/
     .content {
         display: none;
     }
+    /*----------------------------*/
     .tab_bar {
         display: flex;
         justify-content: space-around;
         padding: 9px 0 10px;
         font-size: 8px;
     }
+    /*탭 메뉴 아이콘 글자 정렬*/
     .tab_bar > div {
         text-align: center;
     }
+    /*탭 메뉴 아이콘 크기 설정*/
     .tab_bar img {
         height: 20px;
         display: block;
     }
-}
-
-/*휴대폰*/
-@media (max-width: 320px) {
 }
