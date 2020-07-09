@@ -2,39 +2,114 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" />
+        <!--광고에 사용된 bxslider 관련 css-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css" />
+        <!--광고에 사용된 bxslider 관련 css-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <!--광고에 사용된 bxslider 관련 js-->
+        <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+        <!--광고에 사용된 bxslider 관련 js-->
+        <!--광고 관련 js-->
+
         <!--메인홈페이지 개별 css-->
+        <link rel="stylesheet" type="text/css" href="../../css/common.css" />
         <link rel="stylesheet" type="text/css" href="../../css/MainHome/main.css" />
+        <!--삭제하고  head에 style로 넣는 게 좋을 거 같음.-->
+        <script>
+            //bx slider 적용하는 script
+            $(document).ready(function () {
+                $('.add_slide').bxSlider({
+                    //bXSlider 사용
+                    auto: true,
+                    speed: 500,
+                    pause: 4000,
+                    mode: 'fade',
+                    autoControls: false,
+                    pager: false,
+                });
+            });
+        </script>
         <title>Ya GOLLA</title>
     </head>
     <body>
         <header>
             <div id="insideheader">
                 <!--로고 div-->
-                <img src="../../src/MainHome/logo.PNG" alt="logo" />
+                <img src="../../src/MainHome/logo2.PNG" alt="logo" />
                 <!--네비게이션 들어가는 div-->
                 <div id="main-nav">
-                    <p>
-                        HOME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RANK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RANDOM
-                    </p>
+                    <div>
+                        <a href="MainHome.html"><img src="../../src/home.png" /></a>
+                    </div>
+                    <div>
+                        <a href="../RankPage/RankPage.html"><img src="../../src/rank.png" /></a>
+                    </div>
+                    <div>
+                        <a href="../RandomPage/Random.html"><img src="../../src/random1.png" /></a>
+                    </div>
+                    <div>
+                        <a href="../Search/Search.html"><img src="../../src/search.png" /></a>
+                    </div>
                 </div>
             </div>
         </header>
         <!--중앙 정렬 및 컨텐츠 들어가는 div-->
         <div id="container">
             <!--bxslider 사용할 div-->
-            <div class="slider"></div>
+            <div class="slider">
+                <ul class="add_slide">
+                    <li><img src="../../src/MainHome/search_bx.png" alt="" class="add_img" /></li>
+                    <li><img src="../../src/MainHome/rank_bx.png" alt="" class="add_img" /></li>
+                    <li><img src="../../src/MainHome/random_bx.png" alt="" class="add_img" /></li>
+                    <!--광고 노출 페이지 중 1-->
+                    <!--광고 노출 페이지 중 2-->
+                </ul>
+            </div>
             <!--광고가 들어갈 div-->
-            <div class="add">
-                <img src="../../src/MainHome/waterbomb.PNG" alt="no image" />
-                <img src="../../src/MainHome/ashley.jpg" alt="no image" />
+            <div class="advert">
+                <!--동적으로 만들 땐 advert-img 추가하고 background-img url 바꿔주기-->
+                <div class="advert-img"></div>
+                <div class="advert-img"></div>
+                <div class="advert-img"></div>
+                <div class="advert-img"></div>
             </div>
-            <div class="add">
-                <img src="../../src/MainHome/jeju.PNG" alt="no image" />
-                <img src="../../src/MainHome/yanolja.jpg" alt="no image" />
-            </div>
-            <footer>
-                produce by 3
-            </footer>
         </div>
+        <footer>
+            <div class="content">
+                <div>
+                    <div><strong>Creators</strong>17 고석준 17 신동민 17 박별 19011488 오다혜</div>
+                    <div><strong>ⓒ 3조 Corp.</strong></div>
+                </div>
+            </div>
+            <div class="tab_bar">
+                <div>
+                    <a href="../../html/MainHome/MainHome.html">
+                        <img src="../../src/MainHome/main.png" />
+                        <div>Main</div>
+                    </a>
+                </div>
+                <div>
+                    <a href="../../html/RandomPage/Random.html">
+                        <img src="../../src/MainHome/rank.png" />
+                        <div>Random</div>
+                    </a>
+                </div>
+                <div>
+                    <a href="../../html/RankPage/RankPage.html">
+                        <img src="../../src/MainHome/random.png" />
+                        <div>Rank</div>
+                    </a>
+                </div>
+                <div>
+                    <a href="../../html/Search/Search.html">
+                        <img src="../../src/MainHome/search.png" />
+                        <div>Search</div>
+                    </a>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>

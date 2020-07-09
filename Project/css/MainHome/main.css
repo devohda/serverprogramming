@@ -1,66 +1,87 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-body {
-    background: rgb(240, 240, 240);
-}
-#container {
-    width: 1200px;
-    margin: 0 auto;
-}
-header {
-    height: 50px;
-    background: #fff;
-    border-bottom: 2px solid rgb(113, 200, 226);
-}
-#insideheader {
-    width: 1200px;
-    margin: 0 auto;
-}
-#main-nav {
-    margin-top: 10px;
-    float: right;
-    font-weight: bold;
-    font-size: 1.2em;
-    margin-right: 5px;
-}
-header img {
-    margin: 0 auto;
-    margin-top: 10px;
-    margin-left: 5px;
-    height: 30px;
-}
+/*광고 들어갈 부분 bxslider*/
 .slider {
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #ddd; /*구획 보이게 하려고 추가한 것임 삭제예정*/
+}
+.add_img {
+    width: 760px;
     height: 400px;
-    margin-top: 10px;
-    background: #fff;
-    border-radius: 5px;
 }
-.add {
-    height: 250px;
-    background: #fff;
-    margin-top: 10px;
-    border-radius: 5px;
+
+/*하단 광고 부분*/
+.advert {
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    flex-wrap: wrap;
+    margin: 20px 0;
 }
-.add img {
+
+.advert-img {
+    background-size: cover;
+
+    width: 45%; /*가져오는 광고의 스타일에 따라 크키가 달라져야 할 듯. 미디어 쿼리를 위해 % 적용*/
+    padding-top: 25%; /*페이지 줄이면 비율 따라서 동일한 이미지가 축소되도록 만듦*/
+    background-position: center center;
+
+    border-radius: 5px;
     float: left;
-    width: 570px;
-    height: 210px;
-    border-radius: 5px;
+    margin: 10px 0;
 }
-.add img:nth-child(1) {
-    margin: 20px;
+
+.advert-img:nth-child(1) {
+    background-image: url('../../src/MainHome/ashley.jpg');
 }
-.add img:nth-child(2) {
-    margin-top: 20px;
-    margin-right: 20px;
+.advert-img:nth-child(2) {
+    background-image: url('../../src/MainHome/yanolja.jpg');
 }
-footer {
-    margin-top: 10px;
-    height: 100px;
-    background: rgb(59, 59, 59);
-    color: white;
-    font-size: 2em;
-    font-weight: bold;
+.advert-img:nth-child(3) {
+    background-image: url('../../src/MainHome/waterbomb.PNG');
+}
+.advert-img:nth-child(4) {
+    background-image: url('../../src/MainHome/mango.png');
+}
+
+/* 태블릿 pc 미디어쿼리 */
+@media (max-width: 767px) {
+    /*bx slider 적용 부분*/
+    .slider {
+        height: 300px;
+    }
+    .add_slide img {
+        width: 100%;
+        height: 300px;
+    }
+
+    /*하단 광고 적용 부분*/
+    .advert {
+        overflow: hidden;
+        padding: 0 20px;
+    }
+
+    .advert-img {
+        /*width: 40%;
+        height: 210px;*/
+        background-image: url('../../src/MainHome/ashley.jpg');
+        background-size: cover;
+        width: 80%;
+        padding-top: 35%;
+        border-radius: 5px;
+        float: left;
+        margin: 10px auto;
+    }
+}
+
+@media (max-width: 320px) {
+    /*bx slider 적용 부분*/
+    .slider {
+        width: 100%;
+        height: 150px;
+    }
+    .add_slide img {
+        width: 100%;
+        height: 150px;
+    }
 }
