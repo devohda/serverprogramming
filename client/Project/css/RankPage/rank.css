@@ -158,7 +158,7 @@ html {
 @media (max-width: 767px) {
     /*타블렛 기준 반응형*/
     .body-tag-box {
-        /*태그 박스 삭제*/
+        /*태그 박스 숨기기*/
         display: none;
     }
     .body-title {
@@ -178,7 +178,7 @@ html {
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
     }
-    /*카테고리 내용물 삭제*/
+    /*카테고리 숨기기*/
     .body-category {
         display: none;
     }
@@ -217,9 +217,10 @@ html {
         cursor: pointer;
     }
     .card-header {
+        /*세로 카드의 이미지*/
         height: 150px;
         padding: 0%;
-        width: 100%;
+        width: 100%; /*너비 최대*/
         background-size: cover;
         background-position: center;
         background-color: white;
