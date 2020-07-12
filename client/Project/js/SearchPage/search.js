@@ -24,6 +24,7 @@ $(document).ready(() => {
         $('#search-method').html("<input id='search-input' placeholder='위치 + 음식점·시설으로 검색!' />");
         $('#search-input').val(decodeURIComponent(qs.keyword));
     } else if (qs.type === 'tour') {
+        //여행지 옵션 선택시 각 정보들 select추가
         $('#search-select').val('tour');
         const method = `
                 <select id="search-city" class="search-type">
@@ -142,6 +143,8 @@ $(document).ready(() => {
         $('.loader').css('display', 'block');
         $('html, body').animate({ scrollTop: $(document).height() - $(window).height() });
         if (qs.type === 'list') {
+            //네이버 플레이스 일때
+
             $('#search-info').html(`"${decodeURIComponent(qs.keyword)}" 에 대한 음식점·시설 검색 결과`);
             $.ajax({
                 url: `${url}/api/search/list?page=${page}&keyword=${qs.keyword}`,
@@ -150,6 +153,7 @@ $(document).ready(() => {
             })
                 .done((resp) => {
                     totalpage = resp.page;
+                    //카드 생성및 추가
                     resp.data.map((item, index) => {
                         dom = `<div class="card" onClick="window.open('${item.link}')">
                                 <div class="card-header" style="background-image: url(${item.img}), url('../../src/searchPage/noimg.gif')">
@@ -194,12 +198,14 @@ $(document).ready(() => {
                     });
                 })
                 .fail((resp) => {
+                    //실패 했을때
                     dom = "<div class='not-search'>검색 결과가 없습니다.</div>";
                     $('.cardview').append(dom);
                     $('.loader').css('display', 'none');
                     working = false;
                 });
         } else if (qs.type === 'tour') {
+            //관광지 일때
             $('#search-info').html(`"${decodeURIComponent(qs.keyword)}" 에 대한 관광지 검색 결과`);
             $.ajax({
                 url: `${url}/api/search/tour?page=${page}&city=${qs.city}&category=${qs.category}&order=${qs.order}`,
@@ -207,6 +213,7 @@ $(document).ready(() => {
                 dataType: 'JSON',
             })
                 .done((resp) => {
+                    //카드 생성및 추가
                     resp.data.map((item, index) => {
                         dom = `<div class="card" onClick="window.open('${item.link}')">
                                 <div class="card-header" style="background-image: url(${item.img}), url('../../src/searchPage/noimg.gif')">
@@ -233,6 +240,7 @@ $(document).ready(() => {
                     });
                 })
                 .fail((resp) => {
+                    //실패 했을때
                     dom = "<div class='not-search'>검색 결과가 없습니다.</div>";
                     $('.cardview').append(dom);
                     $('.loader').css('display', 'none');
